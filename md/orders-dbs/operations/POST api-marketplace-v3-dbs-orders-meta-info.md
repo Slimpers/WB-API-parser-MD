@@ -10,11 +10,10 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Данный метод устарел. Он будет удалён [27 июля](https://dev.wildberries.ru/release-notes?id=508)
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления метаданных DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -22,7 +21,6 @@
 | 1 мин | 150 запросов | 400 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Авторизация
 

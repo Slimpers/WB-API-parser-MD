@@ -8,31 +8,28 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает метаданные [сборочных заданий](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get) и статусы их валидации.
-<br><br>
+
 Перечень метаданных, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get), поле `requiredMeta`.
-<br><br>
+
 Возможные метаданные:
   - `imei` — [IMEI](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)
   - `uin` — [УИН](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)
   - `gtin` — [GTIN](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1gtin/put)
   - `sgtin` — [код маркировки Честного знака](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)
 
-  <div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление метаданных</li>
     <li>методы сборочных заданий</li>
-</ul> 
+</ul>
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-</div>
 
 ## Авторизация
 

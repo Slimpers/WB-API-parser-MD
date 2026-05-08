@@ -8,20 +8,17 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает список документов продавца. Вы можете получить [один](./financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](./financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
 | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
 | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
-</div>
 
 ## Авторизация
 

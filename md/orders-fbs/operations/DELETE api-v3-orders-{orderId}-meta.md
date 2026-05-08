@@ -8,10 +8,10 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод удаляет значение [метаданных сборочного задания](/openapi/orders-fbs#tag/Metadannye-FBS/paths/~1api~1marketplace~1v3~1orders~1meta/post) для переданного ключа.
-<br><br>
+
 Возможные метаданные:
   - `imei` — [IMEI](/openapi/orders-fbs#tag/Metadannye-FBS/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1imei/put)
   - `uin` — [УИН](/openapi/orders-fbs#tag/Metadannye-FBS/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1uin/put)
@@ -21,7 +21,6 @@
 
 Можно передать только один ключ.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления метаданных FBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -29,7 +28,6 @@
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Авторизация
 

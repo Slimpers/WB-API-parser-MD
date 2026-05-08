@@ -1,12 +1,8 @@
 # Сборочные задания FBS
 
-<div class="description_auth">
-  Для доступа к методам используйте <a href="./api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Маркетплейс</strong>
-</div>
+Для доступа к методам используйте <a href="./api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Маркетплейс</strong>
 
-<div class="description_important">
   Узнать больше о сборочных заданиях можно в <a href="https://seller.wildberries.ru/instructions/subcategory/6d85301c-719b-4145-9275-2ac8b793f345?goBackOption=prevRoute&categoryId=6d85301c-719b-4145-9275-2ac8b793f345">справочном центре</a>
-</div>
 
 Когда покупатель заказывает товар, у продавца появляется **сборочное задание**. Сборочное задание всегда содержит 1 единицу товара. Если покупатель закажет 10 единиц одного товара одной корзиной, у продавца появятся 10 сборочных заданий. Их можно сгруппировать по одинаковому `orderUid`.
 

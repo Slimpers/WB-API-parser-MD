@@ -8,20 +8,17 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает данные [вопроса](./user-communication#tag/Voprosy/paths/~1api~1v1~1questions/get) по его ID. Далее вы можете [работать с этим вопросом](./user-communication#tag/Voprosy/paths/~1api~1v1~1questions/patch).
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-</div>
 
 ## Авторизация
 
@@ -57,7 +54,7 @@
     - `supplierName` — string. Имя продавца
     - `brandName` — string. Название бренда
   - `wasViewed` — boolean. Просмотрен ли вопрос
-  - `isWarned` — boolean. Признак подозрительного вопроса.<br>
+  - `isWarned` — boolean. Признак подозрительного вопроса.
 - `error` — boolean; пример: `False`. Есть ли ошибка
 - `errorText` — string; пример: ``. Описание ошибки
 - `additionalErrors` — array<string>. Дополнительные ошибки

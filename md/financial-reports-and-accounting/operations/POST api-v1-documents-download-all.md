@@ -8,20 +8,17 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод загружает несколько документов из [списка документов продавца](./financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов |
 | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов |
 | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
-</div>
 
 ## Авторизация
 

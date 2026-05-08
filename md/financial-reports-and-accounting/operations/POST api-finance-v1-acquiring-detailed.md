@@ -9,19 +9,17 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-<div class="description_token">Метод доступен по <a href="./api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>
+Метод доступен по <a href="./api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>
 
 Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
-</div>
 
 ## Авторизация
 
@@ -35,10 +33,10 @@
 **Content-Type:** `application/json`
 
 Параметры запроса
-- `dateFrom` **(required)** — string; пример: `2026-03-17`. Начальная дата отчёта.<br>Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд.<br>Дата передаётся в формате [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339), время — в часовом поясе Москва `UTC+3`.<br>Примеры:
-- `dateTo` **(required)** — string; пример: `2026-03-20`. Конечная дата отчёта.<br>Дата в формате [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339). Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд.<br>Время передаётся в часовом поясе Москва `UTC+3`.<br>Примеры:
+- `dateFrom` **(required)** — string; пример: `2026-03-17`. Начальная дата отчёта.
+- `dateTo` **(required)** — string; пример: `2026-03-20`. Конечная дата отчёта.
 - `limit` — integer; пример: `21100`. Количество строк в ответе
-- `rrdId` — integer. ID строки ответа. Необходим для получения отчёта частями.<br>Начинайте загрузку отчёта с `"rrdid":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа.<br>Повторяйте запрос, пока не получите ответ `204`
+- `rrdId` — integer. ID строки ответа. Необходим для получения отчёта частями.
 - `fields` — array<string>. Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля
 
 **Пример:**

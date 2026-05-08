@@ -8,10 +8,10 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) по их ID.
-<br><br>
+
 `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.
 
 Возможные значения `supplierStatus`:
@@ -22,9 +22,9 @@
 | `confirm`  | **На сборке** |[Добавить сборочное задание к поставке](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1marketplace~1v3~1supplies~1%7BsupplyId%7D~1orders/patch)
 | `complete` | **В доставке** | [Передать поставку в доставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1deliver/patch) |
 | `cancel`   | **Отменено продавцом**   | [Отменить сборочное задание](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1%7BorderId%7D~1cancel/patch)|
-| `cancel_carrier`   | **Отменено перевозчиком** <br>Только для трансграничных поставок   | Переводится перевозчиком |
+| `cancel_carrier`   | **Отменено перевозчиком**
+Только для трансграничных поставок   | Переводится перевозчиком |
 
-<br><br>
 `wbStatus` — статус системы Wildberries.
 
 Возможные значения `wbStatus`:
@@ -40,7 +40,6 @@
 - `sent_to_carrier` — заказ отправлен на склад службы доставки в стране продавца
 - `canceled_by_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -48,7 +47,6 @@
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Авторизация
 

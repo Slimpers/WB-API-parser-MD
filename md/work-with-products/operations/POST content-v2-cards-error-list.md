@@ -8,17 +8,17 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает список карточек товаров ([черновиков](https://seller.wildberries.ru/new-goods/error-cards)), при создании или редактировании которых произошли ошибки, с описанием этих ошибок.
-<br><br>
+
 Данные в ответе возвращаются пакетами `batch`. Один пакет содержит:
   - все ошибки по одному массиву `variants` одного запроса при [создании](./work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post) карточек товаров
   - все ошибки одного запроса при [создании с присоединением](./work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post) или [редактировании](./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post) карточек товаров
-<br><br>
+
 Чтобы получить более 100 пакетов, используйте пагинацию:
-  1. Сделайте первый запрос: <br>
-      <pre style="background-color: rgb(38 50 56 / 5%); color: #e53935">
+  1. Сделайте первый запрос:
+
         {
           "cursor": {
             "limit": 100
@@ -26,22 +26,18 @@
           "order": {
             "ascending": true
           }
-        }</pre>
+        }
   2. Скопируйте `"updatedAt":"***","batchUUID":"***" `из `cursor` ответа и вставьте в `cursor` запроса.
   3. Повторите запрос.
   4. Повторяйте пункты 2 и 3, пока не получите в ответе `"next":false`. Это будет означать, что вы получили все пакеты.
 
-<div class="description_important">
   Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками
-</div>
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 10 запросов | 6 сек | 5 запросов |
-</div>
 
 ## Авторизация
 

@@ -8,27 +8,25 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>
+Метод создаёт карточки товаров c указанием описаний и характеристик товаров.
 
-<div class="description_important">
   Есть две формы запроса: для создания отдельных и объединённых карточек товаров
-</div>
 
 Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
-<br><br>
-Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>
-Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.<br>
+
+Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
+
+Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.
+
 Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post).
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 10 запросов | 6 сек | 5 запросов |
-</div>
 
 ## Запрос
 
@@ -39,16 +37,16 @@
 Отдельные карточки товаров или группы объединённых карточек товаров
 - array of: object
   - `subjectID` **(required)** — integer. ID предмета
-  - `variants` **(required)** — array<object>. [Объединённые](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров.<br>Чтобы создать отдельную карточку, передайте только один объект
+  - `variants` **(required)** — array<object>. [Объединённые](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров.
     - *(элементы)*
       - `brand` — string. Бренд
       - `title` — string. Наименование товара
-      - `description` — string. Описание товара.<br>
+      - `description` — string. Описание товара.
       - `vendorCode` **(required)** — string. Артикул продавца
       - `kizMarked` — boolean. Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):
       - `wholesale` — object. Оптовая продажа
-      - `dimensions` — object. Габариты и вес товара `c упаковкой`.<br>
-      - `sizes` — array<object>. Массив размеров.<br>
+      - `dimensions` — object. Габариты и вес товара `c упаковкой`.
+      - `sizes` — array<object>. Массив размеров.
       - `characteristics` — array<object>. Характеристики товара.
 
 **Пример «creatingOneCard»:**

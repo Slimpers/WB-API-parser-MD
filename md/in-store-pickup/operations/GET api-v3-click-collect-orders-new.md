@@ -10,11 +10,10 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает список всех новых [сборочных заданий](./in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz), которые есть у продавца на момент запроса.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -22,7 +21,6 @@
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Ответы
 

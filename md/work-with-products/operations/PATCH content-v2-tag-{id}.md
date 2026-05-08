@@ -8,12 +8,12 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод заменяет данные ярлыка: имя и цвет.
-<br>Новые данные можно получить в общем [списке](./work-with-products#tag/Yarlyki/paths/~1content~1v2~1tags/get).
 
-<div class="description_limit">
+Новые данные можно получить в общем [списке](./work-with-products#tag/Yarlyki/paths/~1content~1v2~1tags/get).
+
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -30,7 +30,6 @@
     <li><a href="./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
     <li><a href="./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
 </ul>
-</div>
 
 ## Авторизация
 

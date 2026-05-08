@@ -1,8 +1,6 @@
 # Пропуска FBS
 
-<div class="description_auth">
-  Для доступа к методам используйте <a href="./api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Маркетплейс</strong>
-</div>
+Для доступа к методам используйте <a href="./api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Маркетплейс</strong>
 
 Через эти методы вы можете:
   1. Получать [список складов WB, для которых требуется пропуск](./orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes~1offices/get).

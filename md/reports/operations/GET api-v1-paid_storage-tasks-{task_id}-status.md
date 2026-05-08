@@ -8,20 +8,17 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает статус [задания на генерацию](./reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get) отчёта о [платном хранении](./reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1download/get).
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов |
 | Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 2 запроса |
-</div>
 
 ## Авторизация
 

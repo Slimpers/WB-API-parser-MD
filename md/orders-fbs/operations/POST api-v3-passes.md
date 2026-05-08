@@ -8,15 +8,13 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод создаёт [пропуск продавца](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get) с привязкой к складу WB.
 
 Пропуск действует 48 часов со времени создания.
 
-<div class="description_limit">
   Максимум 1 запрос в 10 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>минут</a> на один аккаунт продавца
-</div>
 
 ## Авторизация
 

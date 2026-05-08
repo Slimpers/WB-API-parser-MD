@@ -8,17 +8,15 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-<div class="description_auth">
   Метод доступен по <a href="./api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токену</a> с категорией <strong>Контент</strong> или <strong>Продвижение</strong>
-</div>
 
-Метод возвращает список карточек товаров в корзине.<br><br>
+Метод возвращает список карточек товаров в корзине.
 
 Чтобы получить **больше 100** карточек товаров, используйте пагинацию.
-  1. Сделайте первый запрос: <br>
-      <pre style="background-color: rgb(38 50 56 / 5%); color: #e53935">
+  1. Сделайте первый запрос:
+
         {
           "settings": {
             "sort": {
@@ -28,7 +26,7 @@
               "limit": 100
             }
           }
-        }</pre>
+        }
      Чтобы получать только карточки товаров, которые были перенесены в корзину после выгрузки, используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
   2. Скопируйте `"trashedAt":"***","nmID":***` из `cursor` ответа и вставьте в `cursor` запроса.
   3. Повторите запрос.
@@ -39,7 +37,6 @@
   2. Укажите в первом запросе сохранённые поля `"cursor":{"trashedAt":"***","nmID":"***"}`. Продолжайте использовать сортировку по возрастанию.
   3. Сохраните поля `"cursor":{"trashedAt":"***","nmID":***}` из последнего ответа текущей выгрузки.
 
-  <div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -56,7 +53,6 @@
     <li><a href="./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
     <li><a href="./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
 </ul>
-</div>
 
 ## Авторизация
 
@@ -140,7 +136,7 @@
       - `length` — integer. Длина, см
       - `width` — integer. Ширина, см
       - `height` — integer. Высота, см
-      - `weightBrutto` — number. Вес, кг<br>Количество знаков после запятой <=3
+      - `weightBrutto` — number. Вес, кг
       - `isValid` — boolean. Потенциальная некорректность габаритов товара:
     - `characteristics` — array<object>. Характеристики
       - *(элементы)*

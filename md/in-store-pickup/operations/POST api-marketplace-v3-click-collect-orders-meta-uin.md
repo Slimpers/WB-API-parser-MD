@@ -10,13 +10,12 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод обновляет УИН, уникальные идентификационные номера, в [метаданных сборочных заданий](./in-store-pickup#tag/Metadannye-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1info/post). У одного сборочного задания может быть
 только один УИН. Добавлять УИН можно только для сборочных заданий в [статусе](./in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post)
 `confirm` и доставка которых осуществляется силами WB.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных Самовывоз</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -24,7 +23,6 @@
 | 1 мин | 20 запросов | 3 сек | 500 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Запрос
 

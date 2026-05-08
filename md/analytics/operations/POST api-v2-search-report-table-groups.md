@@ -8,27 +8,24 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-Метод формирует дополнительные данные к [основному отчёту](./analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1report/post) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.<br><br>
+Метод формирует дополнительные данные к [основному отчёту](./analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1report/post) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.
 
 Дополнительный параметр выбора списка товаров в таблице:
  - `positionCluster` — средняя позиция в поиске
 
-Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
+Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
 Данные отчёта обновляются 1 раз в час.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-</div>
 
 ## Запрос
 

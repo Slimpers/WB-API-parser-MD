@@ -10,11 +10,10 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод переводит [сборочные задания](./in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](./in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -22,7 +21,6 @@
 | 1 сек | 1 запрос | 1 сек | 10 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Запрос
 

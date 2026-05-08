@@ -8,13 +8,13 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-Метод обновляет УИН, уникальный идентификационный номер, в [метаданных сборочных заданий](./orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).<br>
+Метод обновляет УИН, уникальный идентификационный номер, в [метаданных сборочных заданий](./orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).
+
 У одного сборочного задания может быть только один УИН.
 Добавлять УИН можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm`.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -22,7 +22,6 @@
 | 1 мин | 500 запросов | 120 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Авторизация
 

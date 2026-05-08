@@ -8,18 +8,16 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод закрепляет за [сборочным заданием](./orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) срок годности товара. Товар годен до указанной даты.
-<br>
+
 Добавить срок годности можно только для заказов, которые доставляются WB и находятся в [статусе](./orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`.
-<br>
-<br>
+
 Получить загруженные данные можно в [метаданных сборочного задания](./orders-fbs#tag/Metadannye-FBS/paths/~1api~1marketplace~1v3~1orders~1meta/post).
 Чтобы изменить срок годности, отправьте запрос с новой датой.
 Удалить срок годности из метаданных сборочного задания невозможно.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных FBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -27,7 +25,6 @@
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Авторизация
 

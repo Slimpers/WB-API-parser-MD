@@ -8,20 +8,17 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1events/get) или [отправить сообщение покупателю](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1message/post).
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
 | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-</div>
 
 ## Авторизация
 

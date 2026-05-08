@@ -2,9 +2,7 @@
 
 **Маркетинг и продвижение** — версия `promotion`
 
-<div class="description_important">
-  Узнать больше о маркетинге и продвижении можно в <a href="https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e">справочном центре</a>
-</div>
+Узнать больше о маркетинге и продвижении можно в <a href="https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e">справочном центре</a>
 
 Методы маркетинга и продвижения позволяют:
   1. Получать информацию о кампаниях [продвижения](./promotion#tag/Kampanii) и [медиакампаниях](./promotion#tag/Media).

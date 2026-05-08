@@ -8,25 +8,20 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает список всех новых [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get), которые есть у продавца на момент запроса.
 
-<div class="description_important">
 Наличие в сборочных заданиях метаданных, указанных в полях <code>requiredMeta</code> и <code>optionalMeta</code>, влияет только на возможность перевести поставку в доставку. Если ваш товар подлежит обязательной <a href ="https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs">маркировке</a> средствами
 идентификации, необходимо указывать метаданные независимо от того, в каком поле они были получены (п. 4.6 <a href ="https://seller.wildberries.ru/confirm-offer-condition/product/view">Оферты</a>).
-<br>
-Рекомендуем добавлять в сборочные задания все метаданные, полученные в полях <code>requiredMeta</code> и <code>optionalMeta</code>
-</div>
 
-<div class="description_limit">
+Рекомендуем добавлять в сборочные задания все метаданные, полученные в полях <code>requiredMeta</code> и <code>optionalMeta</code>
+
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-</div>
 
 ## Авторизация
 

@@ -227,17 +227,48 @@ def _build_example_from_schema(schema: Any, depth: int = 0, _seen: set | None = 
     return None
 
 
-_HTML_SPAN_RE = re.compile(
+# HTML-обёртки, которыми WB приправляет описания. Контент почти всегда
+# полезный, удаляем только теги. Сохраняем `<details>`, `<summary>`,
+# `<code>`, `<a href="https://...">` и собственный type-syntax вида
+# `<integer (int32)>` из `schema_to_brief()`.
+_HTML_STYLE_RE = re.compile(r"<style\b[^>]*>.*?</style>", re.IGNORECASE | re.DOTALL)
+_HTML_SPAN_VAL_RE = re.compile(
     r"<span\s+class=['\"]response__value[^'\"]*['\"]>(.*?)</span>",
     re.DOTALL,
 )
+# WB активно использует <div class="description_auth/important/limit/ref/token">
+# и <pre style="..."> — это служебные обёртки Redoc-плагинов, в обычном md
+# они не рендерятся. Снимаем теги, контент остаётся.
+_HTML_DIV_RE = re.compile(r"</?div\b[^>]*>", re.IGNORECASE)
+_HTML_PRE_RE = re.compile(r"</?pre\b[^>]*>", re.IGNORECASE)
+_HTML_ASIDE_RE = re.compile(r"</?aside\b[^>]*>", re.IGNORECASE)
+_HTML_BR_RE = re.compile(r"<br\s*/?>", re.IGNORECASE)
+_TRAILING_WS_RE = re.compile(r"[ \t]+\n")
+_TRIPLE_NL_RE = re.compile(r"\n{3,}")
 
 
-def _clean_response_desc(s: str | None) -> str:
+def _clean_doc(s: str | None) -> str:
+    """Чистит HTML-обёртки, не трогая полезный контент.
+
+    Применяется к op.summary/description, schema.description, sub_desc,
+    requestBody.description и response.description.
+    """
     if not s:
         return ""
-    s = _HTML_SPAN_RE.sub(r"\1", s)
+    s = _HTML_STYLE_RE.sub("", s)
+    s = _HTML_SPAN_VAL_RE.sub(r"\1", s)
+    s = _HTML_ASIDE_RE.sub("", s)
+    s = _HTML_DIV_RE.sub("", s)
+    s = _HTML_PRE_RE.sub("", s)
+    s = _HTML_BR_RE.sub("\n", s)
+    s = _TRAILING_WS_RE.sub("\n", s)
+    s = _TRIPLE_NL_RE.sub("\n\n", s)
     return s.strip()
+
+
+# Старое имя — оставлено для совместимости, теперь делегирует _clean_doc.
+def _clean_response_desc(s: str | None) -> str:
+    return _clean_doc(s)
 
 
 def schema_to_brief(schema: dict | None) -> str:
@@ -287,9 +318,9 @@ def render_schema_block(schema: dict | None, depth: int = 0, _seen: set | None =
             return f"{'  ' * depth}- $ref: `{ref.rsplit('/', 1)[-1]}`\n"
     out = []
     t = schema.get("type")
-    desc = schema.get("description")
+    desc = _clean_doc(schema.get("description"))
     if desc and depth == 0:
-        out.append(desc.strip() + "\n")
+        out.append(desc + "\n")
 
     if t == "object" or "properties" in schema:
         required = set(schema.get("required") or [])
@@ -300,7 +331,8 @@ def render_schema_block(schema: dict | None, depth: int = 0, _seen: set | None =
             req = " **(required)**" if name in required else ""
             brief = schema_to_brief(sub)
             sub_desc = (sub.get("description") if isinstance(sub, dict) else "") or ""
-            sub_desc = sub_desc.strip().splitlines()[0] if sub_desc else ""
+            sub_desc = _clean_doc(sub_desc)
+            sub_desc = sub_desc.splitlines()[0] if sub_desc else ""
             line = f"{'  ' * depth}- `{name}`{req}"
             if brief:
                 line += f" — {brief}"
@@ -340,7 +372,7 @@ def render_parameters(params: list[dict]) -> str:
                 loc=p.get("in", ""),
                 t=_md_escape_pipe(schema_to_brief(sch)),
                 req="да" if p.get("required") else "нет",
-                desc=_md_escape_pipe(p.get("description", "")),
+                desc=_md_escape_pipe(_clean_doc(p.get("description", ""))),
             )
         )
     return "\n".join(rows) + "\n"
@@ -353,9 +385,9 @@ def render_request_body(body: dict | None) -> str:
     out = ["### Тело запроса\n"]
     if body.get("required"):
         out.append("*Обязательное.*\n")
-    desc = body.get("description")
+    desc = _clean_doc(body.get("description"))
     if desc:
-        out.append(desc.strip() + "\n")
+        out.append(desc + "\n")
     content = body.get("content") or {}
     for ct, payload in content.items():
         out.append(f"\n**Content-Type:** `{ct}`\n\n")
@@ -431,8 +463,8 @@ def render_responses(responses: dict) -> str:
 
 
 def render_operation_md(method: str, path: str, op: dict, *, server: str = "") -> str:
-    summary = op.get("summary") or ""
-    description = op.get("description") or ""
+    summary = _clean_doc(op.get("summary") or "")
+    description = _clean_doc(op.get("description") or "")
     op_id = op.get("operationId") or ""
     tags = op.get("tags") or []
     deprecated = op.get("deprecated", False)
@@ -455,7 +487,7 @@ def render_operation_md(method: str, path: str, op: dict, *, server: str = "") -
     out.append(f"\n**Полный путь:** `{method.upper()} {server.rstrip('/') + path if server else path}`\n")
     if description:
         out.append("\n## Описание\n\n")
-        out.append(description.strip() + "\n")
+        out.append(description + "\n")
 
     sec = op.get("security")
     if sec is not None:
@@ -489,10 +521,10 @@ def render_operation_md(method: str, path: str, op: dict, *, server: str = "") -
 
 def render_tag_md(tag: dict) -> str:
     name = tag.get("name") or "—"
-    desc = tag.get("description") or ""
+    desc = _clean_doc(tag.get("description"))
     out = [f"# {name}\n"]
     if desc:
-        out.append("\n" + desc.strip() + "\n")
+        out.append("\n" + desc + "\n")
     return "".join(out)
 
 
@@ -503,14 +535,14 @@ def render_index_md(slug: str, info: dict, servers: list[dict],
     version = info.get("version") or ""
     if title:
         out.append(f"\n**{title}** — версия `{version}`\n")
-    description = info.get("description")
+    description = _clean_doc(info.get("description") or "")
     if description:
-        out.append("\n" + description.strip() + "\n")
+        out.append("\n" + description + "\n")
     if servers:
         out.append("\n## Серверы\n")
         for s in servers:
             url = s.get("url") or ""
-            d = s.get("description") or ""
+            d = _clean_doc(s.get("description") or "")
             out.append(f"- `{url}`" + (f" — {d}" if d else "") + "\n")
 
     if tags:
@@ -526,7 +558,7 @@ def render_index_md(slug: str, info: dict, servers: list[dict],
         for method, op in methods.items():
             if method.lower() not in ("get", "post", "put", "delete", "patch", "options", "head"):
                 continue
-            summary = op.get("summary") if isinstance(op, dict) else ""
+            summary = _clean_doc(op.get("summary") if isinstance(op, dict) else "")
             file_name = safe_name(method.upper() + " " + path.lstrip("/").replace("/", "-")) + ".md"
             label = f"`{method.upper()} {path}`"
             if summary:

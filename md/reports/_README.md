@@ -2,9 +2,7 @@
 
 **Отчёты** — версия `reports`
 
-<div class="description_important">
-  Узнать больше об отчётах можно в <a href="https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0">справочном центре</a>
-</div>
+Узнать больше об отчётах можно в <a href="https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0">справочном центре</a>
 
 С помощью этих методов вы можете получать [основные отчёты](./reports#tag/Osnovnye-otchyoty) и отчёты о:
   1. [Остатках на складах](./reports#tag/Otchyot-ob-ostatkah-na-skladah)

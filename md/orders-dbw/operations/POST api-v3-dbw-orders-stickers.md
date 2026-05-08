@@ -8,13 +8,13 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get) в [статусах](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post):
   - `confirm` — на сборке
   - `complete` — в доставке
 
-За один запрос можно получить максимум 100 стикеров.<br>
+За один запрос можно получить максимум 100 стикеров.
 
 Доступные форматы стикеров:
   - SVG
@@ -26,20 +26,18 @@
   - 580x400 px при `width=58&height=40` в запросе
   - 400x300 px при `width=40&height=30` в запросе
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление метаданных</li>
     <li>методы сборочных заданий</li>
-</ul> 
+</ul>
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Авторизация
 

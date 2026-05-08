@@ -10,14 +10,14 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [метаданных](./in-store-pickup#tag/Metadannye-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1info/post) нескольких сборочных заданий.<br>
+Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [метаданных](./in-store-pickup#tag/Metadannye-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1info/post) нескольких сборочных заданий.
+
 Закрепить код маркировки Честного знака можно, только если в [метаданных сборочного задания](./in-store-pickup#tag/Metadannye-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1info/post) есть поле `sgtin`, а сборочное задание находится в [статусе](./in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm`.
-<br><br>
+
 Получить загруженные маркировки можно в [метаданных сборочного задания](./in-store-pickup#tag/Metadannye-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1info/post).
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных Самовывоз</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -25,7 +25,6 @@
 | 1 мин | 20 запросов | 3 сек | 500 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Запрос
 

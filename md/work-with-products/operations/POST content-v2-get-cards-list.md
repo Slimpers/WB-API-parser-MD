@@ -8,21 +8,17 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-<div class="description_auth">
   Метод доступен по <a href="./api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токену</a> с категорией <strong>Контент</strong> или <strong>Продвижение</strong>
-</div>
 
 Метод возвращает список созданных карточек товаров.
 
-<div class="description_important">
   В ответе метода не будет карточек, находящихся в корзине. Получить такие карточки можно через <a href="./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1get~1cards~1trash/post">отдельный метод</a>
-</div>
 
 Чтобы получить **больше 100** карточек товаров, используйте пагинацию:
-  1. Сделайте первый запрос: <br>
-      <pre style="background-color: rgb(38 50 56 / 5%); color: #e53935">
+  1. Сделайте первый запрос:
+
         {
           "settings": {
             "sort": {
@@ -35,7 +31,7 @@
               "withPhoto": -1
             }
           }
-        }</pre>
+        }
      Чтобы после выгрузки получать только новые или обновлённые карточки товаров, используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
   2. Скопируйте `"updatedAt":"***","nmID":"***"` из `cursor` ответа и вставьте в `cursor` запроса.
   3. Повторите запрос.
@@ -46,7 +42,6 @@
   2. Укажите в первом запросе сохранённые поля `"cursor":{"updatedAt":"***","nmID":"***"}`. Продолжайте использовать сортировку по возрастанию.
   3. Сохраните поля `"cursor":{"updatedAt":"***","nmID":"***"}` из последнего ответа текущей выгрузки.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -63,7 +58,6 @@
     <li><a href="./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
     <li><a href="./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
 </ul>
-</div>
 
 ## Авторизация
 
@@ -143,7 +137,7 @@
 - `cards` — array<object>. Список карточек товаров
   - *(элементы)*
     - `nmID` — integer. Артикул WB
-    - `imtID` — integer. ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtID`, даже если она не объединена с другими карточками<br>
+    - `imtID` — integer. ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.
     - `nmUUID` — string (UUID). Внутренний технический ID карточки товара
     - `subjectID` — integer. ID предмета
     - `subjectName` — string. Название предмета
@@ -168,7 +162,7 @@
       - `length` — integer. Длина, см
       - `width` — integer. Ширина, см
       - `height` — integer. Высота, см
-      - `weightBrutto` — number. Вес, кг<br>Количество знаков после запятой <=3
+      - `weightBrutto` — number. Вес, кг
       - `isValid` — boolean. Потенциальная некорректность габаритов товара:
     - `characteristics` — array<object>. Характеристики
       - *(элементы)*
@@ -185,7 +179,7 @@
       - *(элементы)*
         - `id` — integer. ID ярлыка
         - `name` — string. Название ярлыка
-        - `color` — string. Цвет ярлыка. <br>
+        - `color` — string. Цвет ярлыка.
     - `createdAt` — string. Дата и время создания
     - `updatedAt` — string. Дата и время изменения
 - `cursor` — object. Пагинатор

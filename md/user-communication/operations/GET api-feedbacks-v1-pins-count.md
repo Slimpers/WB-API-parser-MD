@@ -8,20 +8,17 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-</div>
 
 ## Авторизация
 
@@ -33,7 +30,7 @@
 |---|---|---|---|---|
 | `state` | query | string; enum: ["pinned", "unpinned"]; пример: `pinned` | нет | Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет |
 | `pinOn` | query | string; enum: ["nm", "imt"]; пример: `nm` | нет | Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров |
-| `imtId` | query | integer; пример: `256971531` | нет | ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> |
+| `imtId` | query | integer; пример: `256971531` | нет | ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками |
 | `nmId` | query | integer; пример: `177974151` | нет | Артикул WB |
 | `feedbackId` | query | integer; пример: `789` | нет | ID отзыва |
 | `dateFrom` | query | string (date-time); пример: `2020-01-01T15:04:05Z` | нет | Дата закрепления первого отзыва в списке |

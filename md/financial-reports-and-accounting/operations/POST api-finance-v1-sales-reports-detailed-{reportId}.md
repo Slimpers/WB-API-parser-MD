@@ -9,21 +9,19 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-<div class="description_token">Метод доступен по <a href="./api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>
+Метод доступен по <a href="./api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>
 
 Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов.
-<br><br>
+
 Данные доступны с 1 января 2025 года.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
-</div>
 
 ## Авторизация
 
@@ -33,7 +31,7 @@
 
 | Имя | В | Тип | Обязательный | Описание |
 |---|---|---|---|---|
-| `reportId` | path | integer (int64) | да | ID отчёта.<br>Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint) |
+| `reportId` | path | integer (int64) | да | ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint) |
 
 ## Запрос
 
@@ -44,7 +42,7 @@
 
 Параметры запроса
 - `limit` — integer; пример: `21100`. Количество строк в ответе
-- `rrdId` — integer. ID строки ответа. Необходим для получения отчёта частями.<br>Начинайте загрузку отчёта с `"rrdid":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа.<br>Повторяйте запрос, пока не получите ответ `204`
+- `rrdId` — integer. ID строки ответа. Необходим для получения отчёта частями.
 - `fields` — array<string>. Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля
 
 **Пример:**

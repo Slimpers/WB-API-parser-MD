@@ -8,24 +8,19 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод устанавливает цены и скидки для товаров.
-<br><br>
+
 Чтобы установить цены для размеров товара, используйте [отдельный метод](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post).
 
-<div class="description_important">
   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href="./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get">состояния</a> и <a href="./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get">детализации</a> обработанной загрузки.
-</div>
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 6 сек | 10 запросов | 600 мс | 5 запросов |
-
-</div>
 
 ## Авторизация
 

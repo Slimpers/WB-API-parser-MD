@@ -8,16 +8,13 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод отменяет [сборочное задание](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) и переводит в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `cancel` — отменено продавцом.
 
-<div class="description_important">
 Сборочное задание можно отменить до его передачи Wildberries.
 Чтобы проверить, можно ли отменить сборочное задание, используйте метод <a href ="https://dev.wildberries.ru/docs/openapi/orders-fbs/#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post">POST /api/v3/orders/status</a>, поле <code>isCancellable</code>.
-</div>
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -25,7 +22,6 @@
 | 1 мин | 100 запросов | 600 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Авторизация
 

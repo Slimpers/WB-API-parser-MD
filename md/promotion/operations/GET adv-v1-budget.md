@@ -8,20 +8,17 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает информацию о бюджете [кампании](./promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) — максимальной сумме затрат на кампанию. Бюджет кампании можно [пополнить](./promotion#tag/Finansy/paths/~1adv~1v1~1budget~1deposit/post).
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса |
 | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса |
 | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
-</div>
 
 ## Авторизация
 

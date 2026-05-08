@@ -2,9 +2,7 @@
 
 **Аналитика и данные** — версия `analytics`
 
-<div class="description_important">
-  Узнать больше об аналитике и данных можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics">справочном центре</a>
-</div>
+Узнать больше об аналитике и данных можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics">справочном центре</a>
 
 В разделе описаны методы получения:
   1. [Воронки продаж](./analytics#tag/Voronka-prodazh)

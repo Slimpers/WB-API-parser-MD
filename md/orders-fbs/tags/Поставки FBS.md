@@ -1,18 +1,12 @@
 # Поставки FBS
 
-<div class="description_auth">
-  Для доступа к методам используйте <a href="./api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Маркетплейс</strong>
-</div>
+Для доступа к методам используйте <a href="./api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Маркетплейс</strong>
 
-<div class="description_important">
   Узнать больше о поставках FBS можно в <a href="https://seller.wildberries.ru/instructions/material/A-11?goBackOption=prevRoute&categoryId=6d85301c-719b-4145-9275-2ac8b793f345">справочном центре</a>
-</div>
 
 Для работы с поставками:
 
-  <div class="description_important">
   Пункты 3-5 обязательны к выполнению при доставке поставки на пункт выдачи заказов (ПВЗ).
-  </div>
 
   1. [Создайте новую поставку](./orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies/post). В ответ вернется ID созданной поставки в формате `WB-GI-1234567`.
   2. В текущую новую поставку [добавьте сборочные задания](./orders-fbs#tag/Postavki-FBS/paths/~1api~1marketplace~1v3~1supplies~1%7BsupplyId%7D~1orders/patch), которые вы повезёте на склад или ПВЗ. После того, как сборочные задания будут добавлены к поставке, они будут переведены в статус `confirm` — на сборке.

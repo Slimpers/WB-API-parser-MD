@@ -8,22 +8,17 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод формирует список товаров, подходящих для участия в [акции](./promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1details/get). Эти товары можно добавить в акцию с помощью [отдельного метода](./promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1upload/post).
 
-<div class="description_important">
   Данный метод неприменим для автоакций.
-</div>
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 6 сек | 10 запросов | 600 мс | 5 запросов |
-
-</div>
 
 ## Авторизация
 

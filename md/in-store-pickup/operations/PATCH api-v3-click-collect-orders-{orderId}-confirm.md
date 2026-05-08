@@ -12,7 +12,7 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Данный метод устарел. Он будет удалён [19 мая](https://dev.wildberries.ru/release-notes?id=474)
 

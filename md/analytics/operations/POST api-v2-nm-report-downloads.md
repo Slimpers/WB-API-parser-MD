@@ -8,44 +8,37 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца. <br><br>
+Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца.
 
 Вы можете создать CSV-версии отчётов по [воронке продаж](./analytics#tag/Voronka-prodazh) или [параметрам поиска](./analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram) с группировкой по:
   * артикулам WB
   * предметам, брендам и ярлыкам
 
-В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.<br><br>
+В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.
 
-Также можете создать CSV-версии отчётов по [текстам поисковых запросов](./analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и [остаткам](./analytics#tag/Istoriya-ostatkov).<br><br>
+Также можете создать CSV-версии отчётов по [текстам поисковых запросов](./analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и [остаткам](./analytics#tag/Istoriya-ostatkov).
 
 Каждый новый отчёт должен иметь уникальный ID.
 
-<div class="description_important">
   Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации
-</div>
 
-Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.<br><br>
+Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.
 
-Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
+Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
 Если не удалось [получить отчёт](./analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1file~1%7BdownloadId%7D/get), можно создать [повторное задание на генерацию](./analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1retry/post). Также можно [получить список и проверить статусы](./analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/get) отчётов.
 
-<div class="description_important">
   Отчёты по <a href="https://seller.wildberries.ru/content-analytics/history-remains">остаткам</a> — типы <code>STOCK_HISTORY_REPORT_CSV</code> и <code>STOCK_HISTORY_DAILY_CSV</code> — можно создать без подписки <a href="https://seller.wildberries.ru/monetization/jam">Джем</a>
-</div>
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-</div>
 
 ## Авторизация
 

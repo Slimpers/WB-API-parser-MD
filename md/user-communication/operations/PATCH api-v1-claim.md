@@ -8,20 +8,17 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод отправляет ответ на [заявку](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get) покупателя на возврат товаров.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов |
 | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-</div>
 
 ## Авторизация
 
@@ -36,8 +33,8 @@
 **Content-Type:** `application/json`
 
 - `id` **(required)** — string (UUID); пример: `fe3e9337-e9f9-423c-8930-946a8ebef80`. ID заявки
-- `action` **(required)** — string; пример: `rejectcustom`. Действие с заявкой.<br>Используйте одно из значений массива `actions` — ответа [метода получения заявок](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)
-- `comment` — string; пример: `Фото не имеет отношения к товару в заявке`. Комментарий.<br>Применимо только при `"action":"rejectcustom"` или `"action":"approvecc1"`. При `"action":"rejectcustom"` параметр обязателен
+- `action` **(required)** — string; пример: `rejectcustom`. Действие с заявкой.
+- `comment` — string; пример: `Фото не имеет отношения к товару в заявке`. Комментарий.
 
 **Пример:**
 

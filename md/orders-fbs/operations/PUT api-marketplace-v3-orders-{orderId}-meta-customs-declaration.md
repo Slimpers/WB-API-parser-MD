@@ -8,15 +8,14 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод обновляет номер грузовой таможенной декларации (ГТД) в [метаданных сборочного задания](/openapi/orders-fbs#tag/Metadannye-FBS/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta/get).
-<br>
+
 У одного сборочного задания может быть только один номер ГТД.
 
 Добавлять номер ГТД можно только для сборочных заданий, которые находятся в [статусе](./orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` или `complete`
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных FBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -24,7 +23,6 @@
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Авторизация
 

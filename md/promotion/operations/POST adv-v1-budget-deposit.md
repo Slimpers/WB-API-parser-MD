@@ -8,21 +8,19 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-Метод пополняет [бюджет](./promotion#tag/Finansy/paths/~1adv~1v1~1budget/get) кампании. <br>
+Метод пополняет [бюджет](./promotion#tag/Finansy/paths/~1adv~1v1~1budget/get) кампании.
+
 Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](./promotion#tag/Upravlenie-kampaniyami/paths/~1adv~1v0~1start/get).
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов |
 | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-</div>
 
 ## Авторизация
 

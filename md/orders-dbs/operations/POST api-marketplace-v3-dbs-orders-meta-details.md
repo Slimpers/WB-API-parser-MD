@@ -8,10 +8,12 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-Метод возвращает метаданные [сборочных заданий](./orders-dbs#tag/Sborochnye-zadaniya-DBS) и статусы их валидации. <br>
-Перечень метаданных, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1new/get), поле `requiredMeta`.<br>
+Метод возвращает метаданные [сборочных заданий](./orders-dbs#tag/Sborochnye-zadaniya-DBS) и статусы их валидации.
+
+Перечень метаданных, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1new/get), поле `requiredMeta`.
+
 Возможные метаданные:
   - `imei` — [IMEI](./orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1imei/post)
   - `uin` — [УИН](./orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1uin/post)
@@ -19,8 +21,8 @@
   - `sgtin` — [код маркировки](./orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1sgtin/post)
   - `customsDeclaration` — [номер ГТД](./orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1meta~1customs-declaration/post)
 
-Если ответ вернулся с пустой структурой `meta`, значит у сборочного задания нет метаданных и добавить их нельзя.<br>
-<div class="description_limit">
+Если ответ вернулся с пустой структурой `meta`, значит у сборочного задания нет метаданных и добавить их нельзя.
+
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления метаданных DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -28,7 +30,6 @@
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Авторизация
 

@@ -8,11 +8,10 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод удаляет склад продавца из [списка складов](./work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -20,7 +19,6 @@
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Авторизация
 

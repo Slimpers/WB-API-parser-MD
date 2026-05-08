@@ -8,24 +8,19 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-<div class="description_auth">
   Информацию о продавце можно получить с <a href="./api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токеном</a> любой категории
-</div>
 
 Метод позволяет получать наименование продавца и ID его профиля.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
 | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
 | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
-</div>
 
 ## Авторизация
 

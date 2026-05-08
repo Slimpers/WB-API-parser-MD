@@ -8,22 +8,19 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).<br><br>
+Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).
 
 Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/cases/1).
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов |
 | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов |
 | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
-</div>
 
 ## Параметры
 

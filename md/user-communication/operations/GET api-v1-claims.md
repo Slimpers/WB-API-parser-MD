@@ -8,20 +8,17 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claim/patch).
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов |
 | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-</div>
 
 ## Авторизация
 
@@ -59,11 +56,11 @@
     - `dt_update` — string. Дата и время рассмотрения заявки. Для нерассмотренной заявки — дата и время оформления. UTC+3
     - `photos` — array<string (WEBP)>. Фотографии из заявки покупателя
     - `video_paths` — array<string (MP4)>. Видео из заявки покупателя
-    - `actions` — array<string>. Варианты [ответа продавца на заявку](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claim/patch).<br>Отклонённые заявки можно пересмотреть. Если массив пуст, с заявкой работать нельзя.
+    - `actions` — array<string>. Варианты [ответа продавца на заявку](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claim/patch).
     - `price` — number. Фактическая цена с учетом всех скидок. Взимается с покупателя
     - `currency_code` — string. Код валюты цены
     - `srid` — string. Уникальный ID заказа, по товару которого создана заявка
-    - `origin_id_info` — string. Результат сверки [IMEI](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs#imei) для возврата через ПВЗ Wildberries.<br>Значение показывает, совпадает ли IMEI, который был указан продавцом или отсканирован при приёмке на складе Wildberries, с IMEI из заявки покупателя, что позволяет эффективнее [обрабатывать заявки](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claim/patch).<br>Применимо только для товаров **Apple** предмета `Смартфоны` (`"subjectId":515`) с ценой от 40000 рублей, учитывая скидку продавца ([только](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post) параметры и поля `price` и `discount`)
+    - `origin_id_info` — string. Результат сверки [IMEI](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs#imei) для возврата через ПВЗ Wildberries.
     - `delivery_dt` — string. Дата и время получения заказа покупателем
 - `total` — integer. Количество заявок, соответствующих параметрам запроса. Без учёта `limit` и `offset`
 

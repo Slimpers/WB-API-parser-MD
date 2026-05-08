@@ -8,23 +8,20 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-Метод возвращает список стикеров [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) трансграничных поставок в формате PDF.<br><br>
+Метод возвращает список стикеров [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) трансграничных поставок в формате PDF.
 
 Для каждого сборочного задания в ответе указывается статус генерации стикера:
   - `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.
   - `ready` — стикер готов
 
-<div class="description_important">
   Стикер может генерироваться с задержкой. Повторяйте запрос, пока не получите статус <code>ready</code>.
-</div>
 
 Ограничения:
   - За один запрос можно получить максимум 100 стикеров.
   - Можно получить стикеры только для сборочных заданий, находящихся на сборке или в доставке — [статусы](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`, `complete`.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -32,7 +29,6 @@
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Авторизация
 

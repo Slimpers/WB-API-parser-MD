@@ -8,24 +8,19 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод восстанавливает [карточки товаров из корзины](./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1get~1cards~1trash/post).
 
-<div class="description_important">
   Карточка товара сохраняет тот же <code>imtID</code> — ID для <a href="https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov">объединённых</a> карточек товаров — что был присвоен ей при <a href='./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post'>перемещении в корзину</a>
-</div>
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов |
 | Сервисный | 1 мин | 3 запроса | 20 сек | 5 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-</div>
 
 ## Авторизация
 

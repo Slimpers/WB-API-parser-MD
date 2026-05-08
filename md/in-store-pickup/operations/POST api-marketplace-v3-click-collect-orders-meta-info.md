@@ -10,14 +10,12 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает метаданные [сборочных заданий](./in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz).
-<br><br>
-Перечень метаданных, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](./in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get), поле `requiredMeta`.
-<br><br>
 
-<div class="description_limit">
+Перечень метаданных, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](./in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get), поле `requiredMeta`.
+
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления метаданных Самовывоз</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -25,7 +23,6 @@
 | 1 мин | 150 запросов | 400 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Запрос
 

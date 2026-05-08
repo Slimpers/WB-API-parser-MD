@@ -8,15 +8,14 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](./orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).
-<br><br>
+
 У одного сборочного задания может быть только один ГТД.
 
 Добавлять номер ГТД можно только для сборочных заданий, которые находятся в [статусе](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1status/post) `deliver`.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -24,7 +23,6 @@
 | 1 мин | 500 запросов | 120 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Авторизация
 

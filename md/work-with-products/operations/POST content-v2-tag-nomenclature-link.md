@@ -8,12 +8,12 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-Метод добавляет или снимает ярлык с карточки товара. К карточке можно добавить максимум 15 ярлыков.<br>
+Метод добавляет или снимает ярлык с карточки товара. К карточке можно добавить максимум 15 ярлыков.
+
 При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](./work-with-products#tag/Yarlyki/paths/~1content~1v2~1tags/get) продавца.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -30,7 +30,6 @@
     <li><a href="./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
     <li><a href="./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
 </ul>
-</div>
 
 ## Авторизация
 
@@ -44,7 +43,7 @@
 **Content-Type:** `application/json`
 
 - `nmID` — integer. Артикул WB
-- `tagsIDs` — array<integer>. Массив числовых ID ярлыков.<br>
+- `tagsIDs` — array<integer>. Массив числовых ID ярлыков.
 
 **Пример:**
 

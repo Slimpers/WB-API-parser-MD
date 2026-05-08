@@ -10,9 +10,7 @@
   - устанавливать [цены и скидки](./work-with-products#tag/Ceny-i-skidki)
   - управлять [остатками товаров](./work-with-products#tag/Ostatki-na-skladah-prodavca) и [складами](./work-with-products#tag/Sklady-prodavca), если вы работаете по модели продаж со склада продавца
 
-  <div class="description_ref">
     Узнать, как использовать методы в бизнес-кейсах, можно в <a href="https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami">инструкции</a> по <strong>работе с товарами</strong>
-  </div>
 
 ## Разделы (tags)
 - [Работа с товарами](tags/Работа с товарами.md)

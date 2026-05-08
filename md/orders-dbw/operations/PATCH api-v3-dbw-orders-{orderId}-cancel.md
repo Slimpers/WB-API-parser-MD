@@ -8,18 +8,16 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод отменяет [сборочное задание](./orders-dbw#tag/Sborochnye-zadaniya-DBW) и переводит в [статус](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `cancel` — отменено продавцом.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление метаданных</li>
     <li>управление сборочными заданиями</li>
-</ul> 
-
+</ul>
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
@@ -28,7 +26,6 @@
 | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Авторизация
 

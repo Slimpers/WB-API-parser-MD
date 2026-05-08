@@ -10,13 +10,12 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод удаляет значения указанных [метаданных](./in-store-pickup#tag/Metadannye-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1info/post) для нескольких сборочных заданий.
-<br><br>
+
 Одним запросом можно удалить метаданные только одного типа: `imei`, `uin`, `gtin` или `sgtin`.
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления метаданных Самовывоз</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
@@ -24,7 +23,6 @@
 | 1 мин | 150 запросов | 400 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
-</div>
 
 ## Запрос
 

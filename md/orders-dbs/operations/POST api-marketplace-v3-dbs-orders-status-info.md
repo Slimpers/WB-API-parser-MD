@@ -8,10 +8,10 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
 Метод возвращает статусы [сборочных заданий](./orders-dbs#tag/Sborochnye-zadaniya-DBS) по их ID.
-<br><br>
+
 `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.
 
 Возможные значения `supplierStatus`:
@@ -20,12 +20,12 @@
 | `new`      | **Новое сборочное задание** | |
 | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1confirm/post)
 | `deliver`  | **В доставке**    | [Перевести сборочное задание в доставку](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1deliver/post)
-| `receive`  | **Получено покупателем**       | [Сообщить, что заказ принят покупателем](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1receive/post) <br>
+| `receive`  | **Получено покупателем**       | [Сообщить, что заказ принят покупателем](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1receive/post)
+
 | `reject`   | **Отказ покупателя при получении**           |  [Сообщить, что покупатель отказался от заказа](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1reject/post)
 | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1cancel/post)
 | `cancel_missed_call` | **Отмена по причине недозвона** | Статус меняется автоматически |
 
-<br><br>
 `wbStatus` — статус системы Wildberries.
 
 Возможные значения `wbStatus`:
@@ -34,19 +34,17 @@
 - `canceled` — отмена сборочного задания
 - `canceled_by_client` — покупатель отменил заказ при получении
 - `declined_by_client` — покупатель отменил заказ в первый чаc
-<br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку
+
+ Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку
 - `defect` — отмена заказа по причине брака
 - `ready_for_pickup` — заказ прибыл на ПВЗ
 - `canceled_by_missed_call` — отмена по причине недозвона
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-</div>
 
 ## Авторизация
 

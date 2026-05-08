@@ -9,15 +9,11 @@
 
 ## Описание
 
-<div class='description-title'><span>Описание метода</span></div>
+<span>Описание метода</span>
 
-<div class="description_auth">
   Информацию о подписке Джем можно получить с <a href="./api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токеном</a> любой категории
-</div>
 
-<div class="description_token">
 Метод доступен по<strong> Сервисному</strong> <a href="./api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
-</div>
 
 Метод возвращает информацию о подписке [Джем](https://seller.wildberries.ru/monetization/jam):
   - Если продавец никогда не подключал подписку Джем, возвращается пустой ответ `200`.
@@ -31,13 +27,11 @@
     - дата первой активации подписки `since`
     - дата окончания последнего оплаченного периода `till`
 
-<div class="description_limit">
 <a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 10 запросов |
-</div>
 
 ## Авторизация
 
