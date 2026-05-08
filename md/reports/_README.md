@@ -1,0 +1,58 @@
+# reports
+
+**Отчёты** — версия `reports`
+
+<div class="description_important">
+  Узнать больше об отчётах можно в <a href="https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0">справочном центре</a>
+</div>
+
+С помощью этих методов вы можете получать [основные отчёты](./reports#tag/Osnovnye-otchyoty) и отчёты о:
+  1. [Остатках на складах](./reports#tag/Otchyot-ob-ostatkah-na-skladah)
+  2. [Товарах с обязательной маркировкой](./reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)
+  3. [Удержаниях](./reports#tag/Otchyoty-ob-uderzhaniyah)
+  4. [Операциях при приёмке](./reports#tag/Operacii-pri-priyomke)
+  5. [Платном хранении](./reports#tag/Platnoe-hranenie)
+  6. [Продажах по регионам](./reports#tag/Prodazhi-po-regionam)
+  7. [Доле бренда в продажах](./reports#tag/Dolya-brenda-v-prodazhah)
+  8. [Скрытых товарах](./reports#tag/Skrytye-tovary)
+  9. [Возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)
+
+## Разделы (tags)
+- [Отчёты](tags/Отчёты.md)
+- [Основные отчёты](tags/Основные отчёты.md)
+- [Отчёт об остатках на складах](tags/Отчёт об остатках на складах.md)
+- [Отчёт о товарах c обязательной маркировкой](tags/Отчёт о товарах c обязательной маркировкой.md)
+- [Отчёты об удержаниях](tags/Отчёты об удержаниях.md)
+- [Операции при приёмке](tags/Операции при приёмке.md)
+- [Платное хранение](tags/Платное хранение.md)
+- [Продажи по регионам](tags/Продажи по регионам.md)
+- [Доля бренда в продажах](tags/Доля бренда в продажах.md)
+- [Скрытые товары](tags/Скрытые товары.md)
+- [Отчёт о возвратах и перемещении товаров](tags/Отчёт о возвратах и перемещении товаров.md)
+
+## Эндпоинты
+- [`GET /api/v1/supplier/stocks` — Склады{{ /api/v1/supplier/stocks }}](operations/GET api-v1-supplier-stocks.md)
+- [`GET /api/v1/supplier/orders` — Заказы{{ /api/v1/supplier/orders }}](operations/GET api-v1-supplier-orders.md)
+- [`GET /api/v1/supplier/sales` — Продажи{{ /api/v1/supplier/sales }}](operations/GET api-v1-supplier-sales.md)
+- [`POST /api/v1/analytics/excise-report` — Получить отчёт{{ /api/v1/analytics/excise-report }}](operations/POST api-v1-analytics-excise-report.md)
+- [`GET /api/v1/warehouse_remains` — Создать отчёт{{ /api/v1/warehouse_remains }}](operations/GET api-v1-warehouse_remains.md)
+- [`GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус{{ /api/v1/warehouse_remains/tasks/{task_id}/status }}](operations/GET api-v1-warehouse_remains-tasks-{task_id}-status.md)
+- [`GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт{{ /api/v1/warehouse_remains/tasks/{task_id}/download }}](operations/GET api-v1-warehouse_remains-tasks-{task_id}-download.md)
+- [`GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки{{ /api/analytics/v1/measurement-penalties }}](operations/GET api-analytics-v1-measurement-penalties.md)
+- [`GET /api/analytics/v1/warehouse-measurements` — Замеры склада{{ /api/analytics/v1/warehouse-measurements }}](operations/GET api-analytics-v1-warehouse-measurements.md)
+- [`GET /api/analytics/v1/deductions` — Подмены и неверные вложения{{ /api/analytics/v1/deductions }}](operations/GET api-analytics-v1-deductions.md)
+- [`GET /api/v1/analytics/antifraud-details` — Самовыкупы{{ /api/v1/analytics/antifraud-details }}](operations/GET api-v1-analytics-antifraud-details.md)
+- [`GET /api/v1/analytics/goods-labeling` — Маркировка товара{{ /api/v1/analytics/goods-labeling }}](operations/GET api-v1-analytics-goods-labeling.md)
+- [`GET /api/v1/acceptance_report` — Создать отчёт{{ /api/v1/acceptance_report }}](operations/GET api-v1-acceptance_report.md)
+- [`GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус{{ /api/v1/acceptance_report/tasks/{task_id}/status }}](operations/GET api-v1-acceptance_report-tasks-{task_id}-status.md)
+- [`GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт{{ /api/v1/acceptance_report/tasks/{task_id}/download }}](operations/GET api-v1-acceptance_report-tasks-{task_id}-download.md)
+- [`GET /api/v1/paid_storage` — Создать отчёт{{ /api/v1/paid_storage }}](operations/GET api-v1-paid_storage.md)
+- [`GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус{{ /api/v1/paid_storage/tasks/{task_id}/status }}](operations/GET api-v1-paid_storage-tasks-{task_id}-status.md)
+- [`GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт{{ /api/v1/paid_storage/tasks/{task_id}/download }}](operations/GET api-v1-paid_storage-tasks-{task_id}-download.md)
+- [`GET /api/v1/analytics/region-sale` — Получить отчёт{{ /api/v1/analytics/region-sale }}](operations/GET api-v1-analytics-region-sale.md)
+- [`GET /api/v1/analytics/brand-share/brands` — Бренды продавца{{ /api/v1/analytics/brand-share/brands }}](operations/GET api-v1-analytics-brand-share-brands.md)
+- [`GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда{{ /api/v1/analytics/brand-share/parent-subjects }}](operations/GET api-v1-analytics-brand-share-parent-subjects.md)
+- [`GET /api/v1/analytics/brand-share` — Получить отчёт{{ /api/v1/analytics/brand-share }}](operations/GET api-v1-analytics-brand-share.md)
+- [`GET /api/v1/analytics/banned-products/blocked` — Заблокированные карточки{{ /api/v1/analytics/banned-products/blocked }}](operations/GET api-v1-analytics-banned-products-blocked.md)
+- [`GET /api/v1/analytics/banned-products/shadowed` — Скрытые из каталога{{ /api/v1/analytics/banned-products/shadowed }}](operations/GET api-v1-analytics-banned-products-shadowed.md)
+- [`GET /api/v1/analytics/goods-return` — Получить отчёт{{ /api/v1/analytics/goods-return }}](operations/GET api-v1-analytics-goods-return.md)

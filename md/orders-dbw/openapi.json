@@ -1,0 +1,3183 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Заказы DBW",
+    "version": "ordersdbw",
+    "description": "С помощью методов Заказы DBW (Доставка курьером WB) вы можете:\n  - получать информацию о [сборочных заданиях](./orders-dbw#tag/Sborochnye-zadaniya-DBW), управлять статусами и отменять сборочные задания\n  - получать, добавлять, редактировать и удалять [метаданные](./orders-dbw#tag/Metadannye-DBW) сборочных заданий\n\n<div class=\"description_ref\">\n  Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw\">инструкции</a> по работе с <strong>заказами DBW</strong>\n</div>\n",
+    "x-file-name": "orders-dbw"
+  },
+  "security": [
+    {
+      "HeaderApiKey": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Заказы DBW",
+      "description": "<div class=\"api-description\">\n\nС помощью методов Заказы DBW (Доставка курьером WB) вы можете:\n  - получать информацию о [сборочных заданиях](./orders-dbw#tag/Sborochnye-zadaniya-DBW), управлять статусами и отменять сборочные задания\n  - получать, добавлять, редактировать и удалять [метаданные](./orders-dbw#tag/Metadannye-DBW) сборочных заданий\n\n<div class=\"description_ref\">\n  Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw\">инструкции</a> по работе с <strong>заказами DBW</strong>\n</div>\n\n\n</div>",
+      "x-traitTag": true
+    },
+    {
+      "name": "Сборочные задания DBW",
+      "description": "<div class=\"description_auth\">\n  Для доступа к методам используйте <a href=\"./api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token\">токен</a> для категории <strong>Маркетплейс</strong>\n</div>\n\nДля работы со сборочными заданиями DBW:\n1. [Получите новое сборочное задание](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get).\n2. [Переведите его на сборку](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1confirm/patch).\n3. После перевода на сборку для заказа становится доступной [информация о курьере](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1courier/post) (телефон, номер автомобиля).\n<br>Чтобы курьер мог связаться с вами [привяжите](./work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1dbw~1warehouses~1%7BwarehouseId%7D~1contacts/put) свои контакты к складу. Вы так же можете [получить](./work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1dbw~1warehouses~1%7BwarehouseId%7D~1contacts/get) текущий список своих контактов.\n4. [Получите](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1stickers/post), распечатайте и прикрепите стикеры.\n5. [Переведите сборочное задание в доставку](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1status~1deliver/post).\n6. Дождитесь курьера.\n7. Курьер забирает заказ и отвозит клиенту.\n8. Клиент принимает заказ или отказывается от него.\n9. Если клиент принимает заказ, курьер переводит сборочное задание в статус `receive`. Если отказывается — в `reject`.\n\n  <div class=\"description_important\">\n    Узнать больше о сборочных заданиях DBW можно в <a href=\"https://seller.wildberries.ru/help-center/category/01956ff5-e134-74f3-a798-24b6b49a403b\">справочном центре</a>\n  </div>\n"
+    },
+    {
+      "name": "Метаданные DBW",
+      "description": "<div class=\"description_auth\">\n  Для доступа к методам используйте <a href=\"./api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token\">токен</a> для категории <strong>Маркетплейс</strong>\n</div>\n\n<div class=\"description_important\">\n  Узнать больше о метаданных можно в <a href=\"https://seller.wildberries.ru/instructions/material/A-305?goBackOption=prevRoute&categoryId=6d85301c-719b-4145-9275-2ac8b793f345\">справочном центре</a>\n</div>\n\nС помощью этих методов вы можете [получать](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post), [удалять](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1delete/post) и редактировать метаданные [сборочных заданий](./orders-dbw#tag/Sborochnye-zadaniya-DBW):\n  - [Код маркировки Честного знака](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)\n  - [УИН](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)\n  - [IMEI](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)\n  - [GTIN](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1gtin/put)\n"
+    }
+  ],
+  "paths": {
+    "/api/v3/dbw/orders/new": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "get": {
+        "x-readonly-method": true,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Сборочные задания DBW"
+        ],
+        "summary": "Получить список новых сборочных заданий{{ /api/v3/dbw/orders/new }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод возвращает список всех новых [сборочных заданий](./orders-dbw#tag/Sborochnye-zadaniya-DBW), которые есть у продавца на момент запроса.\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\n</div>\n",
+        "responses": {
+          "200": {
+            "description": "<span class='response__value response__value_success'>Успешно</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "nullable": false,
+                  "properties": {
+                    "orders": {
+                      "type": "array",
+                      "nullable": false,
+                      "description": "Список новых сборочных заданий",
+                      "items": {
+                        "$ref": "#/components/schemas/OrderNewDBW"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/v3/dbw/orders": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "get": {
+        "x-readonly-method": true,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Сборочные задания DBW"
+        ],
+        "summary": "Получить информацию о завершенных сборочных заданиях{{ /api/v3/dbw/orders }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод возвращает информацию о завершенных [сборочных заданиях](./orders-dbw#tag/Sborochnye-zadaniya-DBW).\n<br><br>\nМожно получить данные за заданный период, максимум 30 календарных дней одним запросом.\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин запрос с кодом ответа <code>409</code> учитывается как 10 запросов\n</div>\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Next"
+          },
+          {
+            "name": "dateFrom",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Дата начала периода в формате Unix timestamp\n"
+          },
+          {
+            "name": "dateTo",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Дата конца периода в формате Unix timestamp"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "<span class='response__value response__value_success'>Успешно</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "nullable": false,
+                  "properties": {
+                    "next": {
+                      "$ref": "#/components/schemas/Next"
+                    },
+                    "orders": {
+                      "type": "array",
+                      "nullable": false,
+                      "items": {
+                        "$ref": "#/components/schemas/Order"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/v3/dbw/orders/delivery-date": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "post": {
+        "x-readonly-method": true,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "summary": "Дата и время доставки{{ /api/v3/dbw/orders/delivery-date }}",
+        "tags": [
+          "Сборочные задания DBW"
+        ],
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод возвращает информацию о выбранных покупателем дате и времени доставки сборочных заданий.\n<br>\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин запрос с кодом ответа <code>409</code> учитывается как 10 запросов\n</div>\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeliveryDatesRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "<span class='response__value response__value_success'>Успешно</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeliveryDatesInfoResp"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectRequest": {
+                    "$ref": "#/components/examples/IncorrectRequest1"
+                  },
+                  "IncorrectRequestBody": {
+                    "$ref": "#/components/examples/IncorrectRequestBody"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/marketplace/v3/dbw/orders/client": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "post": {
+        "x-readonly-method": true,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "summary": "Информация о покупателе{{ /api/marketplace/v3/dbw/orders/client }}",
+        "tags": [
+          "Сборочные задания DBW"
+        ],
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод возвращает информацию о покупателях по ID сборочных заданий.\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин запрос с кодом ответа <code>409</code> учитывается как 10 запросов\n</div>\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrdersRequestAPI"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "<span class='response__value response__value_success'>Успешно</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientInfoResp"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectRequest": {
+                    "$ref": "#/components/examples/IncorrectRequest1"
+                  },
+                  "IncorrectRequestBody": {
+                    "$ref": "#/components/examples/IncorrectRequestBody"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/v3/dbw/orders/status": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "post": {
+        "x-readonly-method": true,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Сборочные задания DBW"
+        ],
+        "summary": "Получить статусы сборочных заданий{{ /api/v3/dbw/orders/status }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод возвращает статусы сборочных заданий по их ID.\n<br><br>\n`supplierStatus` — статус сборочного задания.\nТриггер его изменения — действие самого продавца.\n\nВозможные значения `supplierStatus`:\n| Статус   | Описание            | Как перевести сборочное задание в данный статус |\n| -------  | ---------           | --------------------------------------|\n| `new`      | **Новое сборочное задание** | |\n| `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1{orderId}~1confirm/patch)\n| `complete` | **В доставке**  | [Перевести сборочное задание в доставку](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1status~1assemble/post) |\n| `receive`  | **Получено покупателем**|  Переводится курьером\n| `reject`   | **Отказ покупателя при получении**| Переводится курьером\n| `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1{orderId}~1cancel/patch)\n| `cancel_missed_call` | **Отмена по причине недозвона**<br> | Статус меняется автоматически |\n\n<br><br>\n`wbStatus` — статус системы Wildberries.\n\nВозможные значения `wbStatus`:\n- `waiting` — сборочное задание в работе\n- `sold` — заказ получен покупателем\n- `canceled` — отмена сборочного задания\n- `canceled_by_client` — покупатель отменил заказ при получении\n- `declined_by_client` — покупатель отменил заказ в первый чаc\n<br>\nОтмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку\n- `defect` — отмена заказа по причине брака\n- `canceled_by_missed_call` — отмена заказа по причине недозвона\n- `postponed_delivery` — курьерская доставка отложена\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин запрос с кодом ответа <code>409</code> учитывается как 10 запросов\n</div>\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "orders"
+                ],
+                "properties": {
+                  "orders": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 1000,
+                    "description": "Список ID сборочных заданий",
+                    "items": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 5632423
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "<span class='response__value response__value_success'>Успешно</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "orders": {
+                      "type": "array",
+                      "nullable": false,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "nullable": false,
+                            "description": "ID сборочного задания",
+                            "example": 5632423
+                          },
+                          "supplierStatus": {
+                            "type": "string",
+                            "nullable": false,
+                            "description": "Статус сборочного задания, установленный продавцом",
+                            "example": "new"
+                          },
+                          "wbStatus": {
+                            "type": "string",
+                            "nullable": false,
+                            "description": "Статус сборочного задания в системе Wildberries"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  },
+                  "IncorrectRequestBody": {
+                    "$ref": "#/components/examples/IncorrectRequestBody"
+                  },
+                  "IncorrectRequest": {
+                    "$ref": "#/components/examples/IncorrectRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/v3/dbw/orders/{orderId}/confirm": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "patch": {
+        "x-readonly-method": false,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Сборочные задания DBW"
+        ],
+        "summary": "Перевести на сборку{{ /api/v3/dbw/orders/{orderId}/confirm }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод переводит [сборочное задание](./orders-dbw#tag/Sborochnye-zadaniya-DBW) в [статус](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` — на сборке.\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин запрос с кодом ответа <code>409</code> учитывается как 10 запросов\n</div>\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Order"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "<span class='response__value response__value_success'>Подтверждено</span>"
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound",
+            "description": "<span class='response__value '></span>"
+          },
+          "409": {
+            "description": "<span class='response__value '>Ошибка обновления статуса</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "StatusMismatch": {
+                    "$ref": "#/components/examples/StatusMismatch"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/v3/dbw/orders/stickers": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "post": {
+        "x-readonly-method": true,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Сборочные задания DBW"
+        ],
+        "summary": "Получить стикеры сборочных заданий{{ /api/v3/dbw/orders/stickers }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get) в [статусах](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post):\n  - `confirm` — на сборке\n  - `complete` — в доставке\n\nЗа один запрос можно получить максимум 100 стикеров.<br>\n\nДоступные форматы стикеров:\n  - SVG\n  - ZPLV (вертикальный)\n  - ZPLH (горизонтальный)\n  - PNG\n\nДоступны размеры:\n  - 580x400 px при `width=58&height=40` в запросе\n  - 400x300 px при `width=40&height=30` в запросе\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин запрос с кодом ответа <code>409</code> учитывается как 10 запросов\n</div>\n",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "description": "Тип стикера",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "svg",
+                "zplv",
+                "zplh",
+                "png"
+              ]
+            }
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "required": true,
+            "description": "Ширина стикера",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                58,
+                40
+              ]
+            }
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "required": true,
+            "description": "Высота стикера",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                40,
+                30
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "orders": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 100,
+                    "description": "Список ID сборочных заданий",
+                    "items": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 5346346
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "<span class='response__value response__value_success'>Успешно</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "stickers": {
+                      "type": "array",
+                      "nullable": false,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "orderId": {
+                            "type": "integer",
+                            "format": "int64",
+                            "nullable": false,
+                            "description": "ID сборочного задания",
+                            "example": 5346346
+                          },
+                          "partA": {
+                            "type": "string",
+                            "nullable": false,
+                            "description": "Первая часть ID стикера для печати подписи",
+                            "example": "231648"
+                          },
+                          "partB": {
+                            "type": "string",
+                            "nullable": false,
+                            "description": "Вторая часть ID стикера для печати подписи",
+                            "example": "97523"
+                          },
+                          "barcode": {
+                            "type": "string",
+                            "nullable": false,
+                            "description": "Закодированное значение стикера",
+                            "example": "!uKEtQZVx"
+                          },
+                          "file": {
+                            "type": "string",
+                            "nullable": false,
+                            "description": "Полное представление стикера в заданном формате (кодировка base64)",
+                            "example": "PD94bWwgdmVyc2lvbj0iMS4wIj8+CjwhLS0gR2VuZXJhdGVkIGJ5IFNWR28gLS0+Cjxzdmcgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiCiAgICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICAgIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjQwMCIgaGVpZQiIGhlaWdodD0iMTcwIiBzdHlsZT0iZmlsbDpibGFjayIgLz4KPHJlY3QgeD0iMzE4IiB5PSIyMCIgd2lkdGg9IjYiIGhlaWdodD0iMTcwIiBzdHlsZT0iZmlsbDpibGFjayIgLz4KPHJlY3QgeD0iMzI2IiB5PSIyMCIgd2lkdGg9IjIiIGhlaWdodD0iMTcwIiBzdHlsZT0iZmlsbDpibGFjayIgLz4KPHJlY3QgeD0iMzMwIiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iMTcwIiBzdHlsZT0iZmlsbDpibGFjayIgLz4KPHJlY3QgeD0iMjAiIHk9IjIwMCIgd2lkdGg9IjM1MCIgaGVpZ2h0PSI5MCIgc3R5bGU9ImZpbGw6YmxhY2siIC8+Cjx0ZXh0IHg9IjMwIiB5PSIyNDAiIHN0eWxlPSJmaWxsOndoaXRlO2ZvbnQtc2l6ZTozMHB0O3RleHQtYW5jaG9yOnN0YXJ0IiA+MjMxNjQ4PC90ZXh0Pgo8dGV4dCB4PSIzNTAiIHk9IjI3MCIgc3R5bGU9ImZpbGw6d2hpdGU7Zm9udC1zaXplOjUwcHQ7dGV4dC1hbmNob3I6ZW5kIiA+OTc1MzwvdGV4dD4KPC9zdmc+Cg=="
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectRequestBody": {
+                    "$ref": "#/components/examples/IncorrectRequestBody"
+                  },
+                  "IncorrectRequest": {
+                    "$ref": "#/components/examples/IncorrectRequest"
+                  },
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/marketplace/v3/dbw/orders/status/deliver": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "post": {
+        "x-readonly-method": false,
+        "x-category": "marketplace",
+        "tags": [
+          "Сборочные задания DBW"
+        ],
+        "summary": "Перевести сборочные задания в доставку{{ /api/marketplace/v3/dbw/orders/status/deliver }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод переводит [сборочные задания](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get) из [статуса](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` в статус `complete` — в доставке.\n\n<div class=\"description_important\">\nПроверяйте ответ метода. Сборочные задания, переведённые в доставку, вернутся с признаком `\"isError\":false`. Для остальных сборочных заданий смотрите причину ошибки в массиве `errors`\n</div>\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин запрос с кодом ответа <code>409</code> учитывается как 10 запросов\n</div>\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api.OrdersRequestV2"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "<span class='response__value response__value_success'>Успешно</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api.StatusSetResponses"
+                },
+                "example": {
+                  "requestId": "03615778-eb9e-4f55-b4Of-fd3ac0fad2сc",
+                  "results": [
+                    {
+                      "orderId": 42131238,
+                      "isError": true,
+                      "errors": [
+                        {
+                          "code": 409,
+                          "detail": "MetaValidationFail",
+                          "metaDetails": [
+                            {
+                              "key": "sgtin",
+                              "value": "1234567890123",
+                              "decision": "sgtinInvalidFormat"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "orderId": 4279781545,
+                      "isError": false
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  },
+                  "IncorrectRequestBody": {
+                    "$ref": "#/components/examples/IncorrectRequestBody"
+                  },
+                  "IncorrectRequest": {
+                    "$ref": "#/components/examples/IncorrectRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/v3/dbw/orders/courier": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "post": {
+        "x-readonly-method": true,
+        "x-category": "marketplace",
+        "tags": [
+          "Сборочные задания DBW"
+        ],
+        "summary": "Информация о курьере{{ /api/v3/dbw/orders/courier }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод возвращает контактные данные и номер автомобиля курьера по ID сборочного задания. <br> Для сборочных заданий в статусах `confirm`, `complete`.\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\n</div>\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrdersRequestAPI"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "<span class='response__value response__value_success'>Успешно</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderCourierInfoResp"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  },
+                  "IncorrectRequestBody": {
+                    "$ref": "#/components/examples/IncorrectRequestBody"
+                  },
+                  "IncorrectRequest": {
+                    "$ref": "#/components/examples/IncorrectRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/v3/dbw/orders/{orderId}/cancel": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "patch": {
+        "x-readonly-method": false,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Сборочные задания DBW"
+        ],
+        "summary": "Отменить сборочное задание{{ /api/v3/dbw/orders/{orderId}/cancel }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод отменяет [сборочное задание](./orders-dbw#tag/Sborochnye-zadaniya-DBW) и переводит в [статус](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `cancel` — отменено продавцом.\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>управление сборочными заданиями</li>\n</ul> \n\n\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 300 запросов | 200 мс | 20 запросов |\n| Сервисный | 1 мин | 300 запросов | 200 мс | 20 запросов |\n| Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |\n\nОдин запрос с кодом ответа <code>409</code> учитывается как 10 запросов\n</div>\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Order"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "<span class='response__value response__value_success'>Отменено</span>"
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound",
+            "description": "<span class='response__value '></span>"
+          },
+          "409": {
+            "description": "<span class='response__value '>Ошибка обновления статуса</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "StatusMismatch": {
+                    "$ref": "#/components/examples/StatusMismatch"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/v3/dbw/orders/{orderId}/assemble": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "patch": {
+        "x-readonly-method": false,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Сборочные задания DBW"
+        ],
+        "summary": "Перевести в доставку{{ /api/v3/dbw/orders/{orderId}/assemble }}",
+        "deprecated": true,
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nДанный метод устарел. Он будет удалён [5 июня](https://dev.wildberries.ru/release-notes?id=517)\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Order"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "<span class='response__value response__value_success'>Подтверждено</span>"
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound",
+            "description": "<span class='response__value '></span>"
+          },
+          "409": {
+            "description": "<span class='response__value '>Ошибка обновления статуса</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "StatusMismatch": {
+                    "$ref": "#/components/examples/StatusMismatch"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/marketplace/v3/dbw/orders/meta/details": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "post": {
+        "x-readonly-method": true,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Метаданные DBW"
+        ],
+        "summary": "Получить метаданные сборочных заданий{{ /api/marketplace/v3/dbw/orders/meta/details }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод возвращает метаданные [сборочных заданий](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get) и статусы их валидации.\n<br><br>\nПеречень метаданных, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get), поле `requiredMeta`.\n<br><br>\nВозможные метаданные:\n  - `imei` — [IMEI](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)\n  - `uin` — [УИН](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)\n  - `gtin` — [GTIN](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1gtin/put)\n  - `sgtin` — [код маркировки Честного знака](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)\n\n  <div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\n</div>\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api.OrdersRequestV2"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "<span class='response__value response__value_success'>Успешно</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api.OrdersMetaDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api.BatchError"
+                },
+                "example": {
+                  "detail": {},
+                  "origin": "dbs-public-api",
+                  "requestId": "f1787bd2d1fdс35d6f537316514у4a05",
+                  "title": "IncorrectRequest"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "description": "<span class='response__value '>Доступ запрещён</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api.BatchError"
+                },
+                "example": {
+                  "detail": {},
+                  "origin": "dbs-public-api",
+                  "requestId": "f1787bd2d1fdс35d6f537316514у4a05",
+                  "title": "AccessDenied"
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/marketplace/v3/dbw/orders/meta/delete": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "post": {
+        "x-readonly-method": false,
+        "x-category": "marketplace",
+        "tags": [
+          "Метаданные DBW"
+        ],
+        "summary": "Удалить метаданные сборочных заданий{{ /api/marketplace/v3/dbw/orders/meta/delete }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод удаляет значение указанных [метаданных сборочного задания](/openapi/orders-dbw#tag/Metadannye-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) для переданного ключа.\n<br><br>\nВ одном запросе можно удалить метаданные только одного типа. Укажите тип метаданных в запросе:\n  - `imei` — [IMEI](/openapi/orders-dbw#tag/Metadannye-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)\n  - `uin` — [УИН](/openapi/orders-dbw#tag/Metadannye-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)\n  - `gtin` — [GTIN](/openapi/orders-dbw#tag/Metadannye-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)\n  - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/Metadannye-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)\n\nМожно передать только один ключ.\n\n  <div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\n</div>\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api.OrdersMetaDleteRequestV2"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "<span class='response__value response__value_success'>Успешно</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api.MetaDeleteResponses",
+                  "example": {
+                    "requestId": "03615778-eb9e-4f55-b4Of-fd3ac0fad2сc",
+                    "results": [
+                      {
+                        "orderId": 42131238,
+                        "isError": true,
+                        "errors": [
+                          {
+                            "code": 409,
+                            "detail": "FailedToUpdateMeta"
+                          }
+                        ]
+                      },
+                      {
+                        "orderId": 4279781545,
+                        "isError": false
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  },
+                  "IncorrectRequestBody": {
+                    "$ref": "#/components/examples/IncorrectRequestBody"
+                  },
+                  "IncorrectRequest": {
+                    "$ref": "#/components/examples/IncorrectRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/v3/dbw/orders/{orderId}/meta": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "get": {
+        "x-readonly-method": true,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Метаданные DBW"
+        ],
+        "summary": "Получить метаданные сборочного задания{{ /api/v3/dbw/orders/{orderId}/meta }}",
+        "deprecated": true,
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nДанный метод устарел. Он будет удалён [27 июля](https://dev.wildberries.ru/release-notes?id=508)\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\n</div>\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Order"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "<span class='response__value response__value_success'>Успешно</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "nullable": false,
+                  "properties": {
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound",
+            "description": "<span class='response__value '></span>"
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      },
+      "delete": {
+        "x-readonly-method": false,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Метаданные DBW"
+        ],
+        "deprecated": true,
+        "summary": "Удалить метаданные сборочного задания{{ /api/v3/dbw/orders/{orderId}/meta }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nДанный метод устарел. Он будет удалён [5 июня](https://dev.wildberries.ru/release-notes?id=517)\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Order"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Название метаданных для удаления (`imei`, `uin`, `gtin`, `sgtin`). Передаётся только одно значение"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "<span class='response__value response__value_success'>Удалено</span>"
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  },
+                  "IncorrectRequest": {
+                    "$ref": "#/components/examples/IncorrectRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "409": {
+            "description": "<span class='response__value '>Ошибка удаления метаданных</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "FailedToUpdateMeta": {
+                    "$ref": "#/components/examples/FailedToUpdateMeta"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/marketplace/v3/dbw/orders/meta/sgtin": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "post": {
+        "x-readonly-method": false,
+        "x-category": "marketplace",
+        "tags": [
+          "Метаданные DBW"
+        ],
+        "summary": "Закрепить коды маркировки Честного знака за сборочными заданиями{{ /api/marketplace/v3/dbw/orders/meta/sgtin }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [метаданных](/openapi/orders-dbw#tag/Metadannye-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) нескольких сборочных заданий.<br>\nЗакрепить код маркировки можно, только если в [метаданных сборочного задания](/openapi/orders-dbw#tag/Metadannye-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` — на сборке.\n<br><br>\nПолучить загруженные маркировки можно в [метаданных сборочного задания](/openapi/orders-dbw#tag/Metadannye-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получение и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\n</div>\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api.OrdersSGTINsSetRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "<span class='response__value response__value_success'>Успешно</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api.StatusSetResponses"
+                },
+                "example": {
+                  "requestId": "03615778-eb9e-4f55-b4Of-fd3ac0fad2сc",
+                  "results": [
+                    {
+                      "orderId": 42131238,
+                      "isError": true,
+                      "errors": [
+                        {
+                          "code": 409,
+                          "detail": "FailedToUpdateMeta"
+                        }
+                      ]
+                    },
+                    {
+                      "orderId": 4279781545,
+                      "isError": false
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  },
+                  "IncorrectRequestBody": {
+                    "$ref": "#/components/examples/IncorrectRequestBody"
+                  },
+                  "IncorrectRequest": {
+                    "$ref": "#/components/examples/IncorrectRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/v3/dbw/orders/{orderId}/meta/sgtin": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "put": {
+        "x-readonly-method": false,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Метаданные DBW"
+        ],
+        "deprecated": true,
+        "summary": "Закрепить за сборочным заданием код маркировки товара{{ /api/v3/dbw/orders/{orderId}/meta/sgtin }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nДанный метод устарел. Он будет удалён [5 июня](https://dev.wildberries.ru/release-notes?id=517)\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Order"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sgtins": {
+                    "type": "array",
+                    "description": "Массив кодов маркировки Честного знака. Допускается от 16 до 135 символов для кода одной маркировки",
+                    "minItems": 1,
+                    "maxItems": 24,
+                    "items": {
+                      "type": "string",
+                      "description": "Код маркировки на упаковке. От 16 до 135 символов",
+                      "example": "1234567890123456"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "<span class='response__value response__value_success'>Отправлено</span>"
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectRequestBody": {
+                    "$ref": "#/components/examples/IncorrectRequestBody"
+                  },
+                  "IncorrectRequest": {
+                    "$ref": "#/components/examples/IncorrectRequest"
+                  },
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound",
+            "description": "<span class='response__value '></span>"
+          },
+          "409": {
+            "description": "<span class='response__value '>Ошибка добавления маркировки</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "FailedToUpdateMeta": {
+                    "$ref": "#/components/examples/FailedToUpdateMeta"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/v3/dbw/orders/{orderId}/meta/uin": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "put": {
+        "x-readonly-method": false,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Метаданные DBW"
+        ],
+        "summary": "Закрепить за сборочным заданием УИН (уникальный идентификационный номер){{ /api/v3/dbw/orders/{orderId}/meta/uin }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод обновляет УИН в [метаданных сборочного задания](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) — уникальный идентификационный номер.\n<br><br>\nУ одного сборочного задания может быть только один УИН.\n\nДобавлять маркировку можно только для заказов, которые находятся в [статусе](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBW</strong>:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 1000 запросов | 60 мс | 20 запросов |\n\nОдин запрос с кодом ответа <code>409</code> учитывается как 10 запросов\n</div>\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Order"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "uin": {
+                    "type": "string",
+                    "minLength": 16,
+                    "maxLength": 16,
+                    "description": "УИН",
+                    "example": "1234567890123456"
+                  }
+                },
+                "required": [
+                  "uin"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "<span class='response__value response__value_success'>Обновлено</span>"
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectRequestBody": {
+                    "$ref": "#/components/examples/IncorrectRequestBody"
+                  },
+                  "IncorrectRequest": {
+                    "$ref": "#/components/examples/IncorrectRequest"
+                  },
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound",
+            "description": "<span class='response__value '></span>"
+          },
+          "409": {
+            "description": "<span class='response__value '>Ошибка добавления маркировки</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "FailedToUpdateMeta": {
+                    "$ref": "#/components/examples/FailedToUpdateMeta"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/v3/dbw/orders/{orderId}/meta/imei": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "put": {
+        "x-readonly-method": false,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Метаданные DBW"
+        ],
+        "summary": "Закрепить за сборочным заданием IMEI{{ /api/v3/dbw/orders/{orderId}/meta/imei }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод обновляет IMEI в [метаданных сборочного задания](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).\n<br><br>\nУ одного сборочного задания может быть только один IMEI.\n\nДобавлять маркировку можно только для заказов, которые находятся в [статусе](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBW</strong>:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 1000 запросов | 60 мс | 20 запросов |\n\nОдин запрос с кодом ответа <code>409</code> учитывается как 10 запросов\n</div>\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Order"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "imei": {
+                    "type": "string",
+                    "minLength": 15,
+                    "maxLength": 15,
+                    "description": "IMEI",
+                    "example": "123456789012345"
+                  }
+                },
+                "required": [
+                  "imei"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "<span class='response__value response__value_success'>Обновлено</span>"
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectRequestBody": {
+                    "$ref": "#/components/examples/IncorrectRequestBody"
+                  },
+                  "IncorrectRequest": {
+                    "$ref": "#/components/examples/IncorrectRequest"
+                  },
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound",
+            "description": "<span class='response__value '></span>"
+          },
+          "409": {
+            "description": "<span class='response__value '>Ошибка добавления маркировки</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "FailedToUpdateMeta": {
+                    "$ref": "#/components/examples/FailedToUpdateMeta"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    },
+    "/api/v3/dbw/orders/{orderId}/meta/gtin": {
+      "servers": [
+        {
+          "url": "https://marketplace-api.wildberries.ru"
+        }
+      ],
+      "put": {
+        "x-readonly-method": false,
+        "x-category": "marketplace",
+        "security": [
+          {
+            "HeaderApiKey": []
+          }
+        ],
+        "tags": [
+          "Метаданные DBW"
+        ],
+        "summary": "Закрепить за сборочным заданием GTIN{{ /api/v3/dbw/orders/{orderId}/meta/gtin }}",
+        "description": "<div class='description-title'><span>Описание метода</span></div>\n\nМетод обновляет GTIN в [метаданных сборочного задания](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) — уникальный ID товара в Беларуси.\n<br><br>\nУ одного сборочного задания может быть только один GTIN.\n\nДобавлять маркировку можно только для заказов, которые находятся в [статусе](./orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.\n\n<div class=\"description_limit\">\n<a href='./api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBW</strong>:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 1000 запросов | 60 мс | 20 запросов |\n\nОдин запрос с кодом ответа <code>409</code> учитывается как 10 запросов\n</div>\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Order"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "gtin": {
+                    "type": "string",
+                    "minLength": 13,
+                    "maxLength": 13,
+                    "description": "GTIN",
+                    "example": "1234567890123"
+                  }
+                },
+                "required": [
+                  "gtin"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "<span class='response__value response__value_success'>Обновлено</span>"
+          },
+          "400": {
+            "description": "<span class='response__value '>Неправильный запрос</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "IncorrectRequestBody": {
+                    "$ref": "#/components/examples/IncorrectRequestBody"
+                  },
+                  "IncorrectRequest": {
+                    "$ref": "#/components/examples/IncorrectRequest"
+                  },
+                  "IncorrectParameter": {
+                    "$ref": "#/components/examples/IncorrectParameter"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401",
+            "description": "<span class='response__value '></span>"
+          },
+          "402": {
+            "$ref": "#/components/responses/402",
+            "description": "<span class='response__value '></span>"
+          },
+          "403": {
+            "$ref": "#/components/responses/AccessDenied",
+            "description": "<span class='response__value '></span>"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound",
+            "description": "<span class='response__value '></span>"
+          },
+          "409": {
+            "description": "<span class='response__value '>Ошибка добавления маркировки</span>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "FailedToUpdateMeta": {
+                    "$ref": "#/components/examples/FailedToUpdateMeta"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429",
+            "description": "<span class='response__value '></span>"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "HeaderApiKey": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    },
+    "parameters": {
+      "Order": {
+        "name": "orderId",
+        "in": "path",
+        "required": true,
+        "description": "ID сборочного задания",
+        "schema": {
+          "type": "integer",
+          "format": "int64",
+          "example": 5632423
+        }
+      },
+      "Next": {
+        "name": "next",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "description": "Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе"
+      },
+      "Limit": {
+        "name": "limit",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "description": "Параметр пагинации. Устанавливает предельное количество возвращаемых данных"
+      }
+    },
+    "examples": {
+      "IncorrectRequestBody": {
+        "description": "Некорректное тело запроса",
+        "value": {
+          "code": "IncorrectRequestBody",
+          "message": ""
+        }
+      },
+      "IncorrectRequest": {
+        "value": {
+          "code": "IncorrectRequest",
+          "message": ""
+        }
+      },
+      "IncorrectRequest1": {
+        "description": "Некорректный запрос",
+        "value": {
+          "code": "IncorrectRequest",
+          "message": ""
+        }
+      },
+      "IncorrectParameter": {
+        "value": {
+          "code": "IncorrectParameter",
+          "message": ""
+        }
+      },
+      "FailedToUpdateMeta": {
+        "value": {
+          "code": "FailedToUpdateMeta",
+          "message": ""
+        }
+      },
+      "StatusMismatch": {
+        "value": {
+          "data": {},
+          "code": "StatusMismatch",
+          "message": ""
+        }
+      }
+    },
+    "responses": {
+      "401": {
+        "description": "<span class='response__value '>Не авторизован</span>",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "Заголовок ошибки"
+                },
+                "detail": {
+                  "type": "string",
+                  "description": "Детали ошибки"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Внутренний код ошибки"
+                },
+                "requestId": {
+                  "type": "string",
+                  "description": "Уникальный ID запроса"
+                },
+                "origin": {
+                  "type": "string",
+                  "description": "ID внутреннего сервиса WB"
+                },
+                "status": {
+                  "type": "number",
+                  "description": "HTTP статус-код"
+                },
+                "statusText": {
+                  "type": "string",
+                  "description": "Расшифровка HTTP статус-кода"
+                },
+                "timestamp": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Дата и время запроса"
+                }
+              }
+            },
+            "example": {
+              "title": "unauthorized",
+              "detail": "token problem; token is malformed: could not base64 decode signature: illegal base64 data at input byte 84",
+              "code": "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75",
+              "requestId": "7b80742415072fe8b6b7f7761f1d1211",
+              "origin": "s2s-api-auth-catalog",
+              "status": 401,
+              "statusText": "Unauthorized",
+              "timestamp": "2024-09-30T06:52:38Z"
+            }
+          }
+        }
+      },
+      "402": {
+        "description": "<span class='response__value '>Требуется платёж</span>",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "Заголовок ошибки"
+                },
+                "detail": {
+                  "type": "string",
+                  "description": "Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)"
+                }
+              }
+            },
+            "example": {
+              "title": "payment required",
+              "detail": "wb solution for business has insufficient funds on its balance. please top up the balance in the company's personal account https://dev.wildberries.ru/company"
+            }
+          }
+        }
+      },
+      "429": {
+        "description": "<span class='response__value '>Слишком много запросов</span>",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "Заголовок ошибки"
+                },
+                "detail": {
+                  "type": "string",
+                  "description": "Детали ошибки"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Внутренний код ошибки"
+                },
+                "requestId": {
+                  "type": "string",
+                  "description": "Уникальный ID запроса"
+                },
+                "origin": {
+                  "type": "string",
+                  "description": "ID внутреннего сервиса WB"
+                },
+                "status": {
+                  "type": "number",
+                  "description": "HTTP статус-код"
+                },
+                "statusText": {
+                  "type": "string",
+                  "description": "Расшифровка HTTP статус-кода"
+                },
+                "timestamp": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Дата и время запроса"
+                }
+              }
+            },
+            "example": {
+              "title": "too many requests",
+              "detail": "limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489",
+              "code": "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]",
+              "requestId": "9d3c02cc698f8b041c661a7c28bed293",
+              "origin": "s2s-api-auth-catalog",
+              "status": 429,
+              "statusText": "Too Many Requests",
+              "timestamp": "2024-09-30T06:52:38Z"
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "<span class='response__value '>Не найдено</span>",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "example": {
+              "code": "NotFound",
+              "message": ""
+            }
+          }
+        }
+      },
+      "AccessDenied": {
+        "description": "<span class='response__value '>Доступ запрещён</span>",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "example": {
+              "code": "AccessDenied",
+              "message": ""
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "api.OrdersSGTINsSetRequest": {
+        "type": "object",
+        "required": [
+          "orders"
+        ],
+        "properties": {
+          "orders": {
+            "type": "array",
+            "maxItems": 1000,
+            "items": {
+              "$ref": "#/components/schemas/api.SGTINs"
+            }
+          }
+        }
+      },
+      "api.SGTINs": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "description": "ID сборочного задания",
+            "type": "integer",
+            "example": 123456
+          },
+          "sgtins": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 24,
+            "description": "Массив кодов маркировки. Допускается от 16 до 135 символов для кода одной маркировки",
+            "example": [
+              "123456789012345678",
+              "1234567890123456"
+            ],
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "api.StatusSetResponses": {
+        "type": "object",
+        "required": [
+          "results"
+        ],
+        "example": {
+          "requestId": "03615778-eb9e-4f55-b4Of-fd3ac0fad2сc",
+          "results": [
+            {
+              "orderId": 4299281547,
+              "isError": true,
+              "errors": [
+                {
+                  "code": 404,
+                  "detail": "NotFound"
+                }
+              ]
+            },
+            {
+              "orderId": 4279781545,
+              "isError": false
+            }
+          ]
+        },
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "description": "Уникальный ID запроса, содержащего ошибки."
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/api.StatusSetResponse"
+            }
+          }
+        }
+      },
+      "api.StatusSetResponse": {
+        "type": "object",
+        "required": [
+          "isError",
+          "orderId"
+        ],
+        "properties": {
+          "errors": {
+            "items": {
+              "$ref": "#/components/schemas/api.BatchErrorResponse"
+            },
+            "type": "array",
+            "description": "Детали ошибки"
+          },
+          "isError": {
+            "type": "boolean",
+            "description": "Есть ли ошибки",
+            "example": true
+          },
+          "orderId": {
+            "type": "integer",
+            "description": "ID сборочного задания с успешно обновлёнными данными",
+            "example": 123456
+          }
+        }
+      },
+      "api.BatchErrorResponse": {
+        "required": [
+          "code",
+          "detail"
+        ],
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "Код ошибки:\n  - `404`\n  - `409`\n",
+            "example": 404
+          },
+          "detail": {
+            "type": "string",
+            "description": "- `NotFound` — сборочное задание не найдено\n- `StatusMismatch` — операция невозможна для этого статуса сборочного задания\n- `ImeiIsNotFilled` — не заполнен IMEI\n- `MetaValidationFail` — ошибки валидации метаданных\n",
+            "example": "NotFound"
+          },
+          "metaDetails": {
+            "type": "array",
+            "description": "Детали ошибки валидации метаданных",
+            "items": {
+              "type": "object",
+              "required": [
+                "decision",
+                "key"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "description": "Метаданные",
+                  "example": "sgtin"
+                },
+                "value": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Значение метаданных",
+                  "example": "1234567890"
+                },
+                "decision": {
+                  "type": "string",
+                  "description": "Статус проверки:\n- `sgtin`\n  - `sgtinInvalidFormat` — Неверный формат маркировки\n  - `sgtinNotFound` — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru)\n  - `sgtinEmitted` —  Маркировка эмитирована\n  - `sgtinApplied` — Не пройдена процедура Ввод в оборот\n  - `sgtinWrittenOff` — Списан\n  - `sgtinRetired` — Выбыл\n  - `sgtinWithdrawn` — Выбыл\n  - `sgtinDisaggregation` — Расформирован\n  - `sgtinDisaggregated` — Расформирован\n  - `sgtinAppliedNotPaid` — Не оплачен\n  - `pending` — Маркировка на проверке\n",
+                  "example": "sgtinEmitted"
+                }
+              }
+            }
+          }
+        },
+        "type": "object"
+      },
+      "api.MetaDeleteResponses": {
+        "type": "object",
+        "required": [
+          "results"
+        ],
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "description": "Уникальный ID запроса. Отображается для ответов с ошибками"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "isError",
+                "orderId"
+              ],
+              "properties": {
+                "errors": {
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "code",
+                      "detail"
+                    ],
+                    "properties": {
+                      "code": {
+                        "type": "integer",
+                        "description": "Код ошибки:\n  - `404`\n  - `409`\n"
+                      },
+                      "detail": {
+                        "type": "string",
+                        "description": "- `NotFound` — сборочное задание не найдено\n- `StatusMismatch` — операция невозможна для этого статуса сборочного задания\n- `ImeiIsNotFilled` — не заполнен IMEI\n"
+                      }
+                    }
+                  },
+                  "type": "array",
+                  "description": "Детали ошибки"
+                },
+                "isError": {
+                  "type": "boolean",
+                  "description": "Есть ли ошибки"
+                },
+                "orderId": {
+                  "type": "integer",
+                  "description": "ID сборочного задания с успешно обновлёнными данными"
+                }
+              }
+            }
+          }
+        }
+      },
+      "api.OrdersRequestV2": {
+        "type": "object",
+        "properties": {
+          "ordersIds": {
+            "type": "array",
+            "maxItems": 1000,
+            "example": [
+              1234678898
+            ],
+            "items": {
+              "type": "integer"
+            },
+            "description": "Список ID сборочных заданий"
+          }
+        }
+      },
+      "api.OrdersMetaDleteRequestV2": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Название метаданных для удаления (imei, uin, gtin, sgtin). Передаётся только одно значение",
+            "example": "sgtin"
+          },
+          "ordersIds": {
+            "type": "array",
+            "maxItems": 1000,
+            "items": {
+              "type": "integer"
+            },
+            "description": "Список ID сборочных заданий",
+            "example": [
+              123456789
+            ]
+          }
+        }
+      },
+      "ClientInfo": {
+        "properties": {
+          "replacementPhone": {
+            "type": "string",
+            "description": "Подменный номер для связи с покупателем. <br>\nПустое значение `\"\"` указывает, что номер ещё не назначен\n",
+            "example": "79871234567",
+            "nullable": false
+          },
+          "phone": {
+            "type": "string",
+            "description": "Номер телефона для связи с покупателем:\n  - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`\n  - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду\n",
+            "example": "+79871234567",
+            "nullable": false
+          },
+          "firstName": {
+            "type": "string",
+            "description": "Имя покупателя",
+            "example": "Иван",
+            "nullable": false
+          },
+          "fullName": {
+            "type": "string",
+            "description": "Полное имя покупателя, используется для оформления документов",
+            "example": "Иванов Иван Иванович",
+            "nullable": false
+          },
+          "additionalPhones": {
+            "nullable": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Дополнительные номера телефонов для связи с покупателем. <br>\nИспользуйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br>\nПустое значение означает, что номер не указан\n",
+            "example": [
+              "1234554321"
+            ]
+          },
+          "additionalPhoneCodes": {
+            "nullable": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "Дополнительные добавочные коды. <br>\nИспользуйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br>\nПустое значение указывает, коды ещё не назначены\n",
+            "example": [
+              12345
+            ]
+          },
+          "orderId": {
+            "type": "integer",
+            "description": "ID сборочного задания",
+            "example": 1345678910
+          },
+          "phoneCode": {
+            "type": "integer",
+            "description": "Добавочный код. <br>\nИспользуйте, чтобы связаться с покупателем по номеру из `phone`.<br>\nЕсли код не указан, вы можете связаться с покупателем без кода\n",
+            "example": 0,
+            "nullable": false
+          }
+        },
+        "type": "object"
+      },
+      "ClientInfoResp": {
+        "properties": {
+          "orders": {
+            "description": "Информация о покупателях",
+            "items": {
+              "$ref": "#/components/schemas/ClientInfo"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "OrderCourierInfo": {
+        "type": "object",
+        "properties": {
+          "courierInfo": {
+            "type": "object",
+            "description": "Информация о курьере",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CourierInfo"
+              }
+            ]
+          },
+          "orderID": {
+            "type": "integer",
+            "description": "ID сборочного задания",
+            "example": 2876979713
+          }
+        }
+      },
+      "OrderCourierInfoResp": {
+        "type": "object",
+        "properties": {
+          "orders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderCourierInfo"
+            }
+          }
+        }
+      },
+      "CourierContactsResponse": {
+        "type": "object",
+        "properties": {
+          "carNumber": {
+            "type": "string",
+            "description": "Номер автомобиля",
+            "example": "х111хх11"
+          },
+          "fullName": {
+            "type": "string",
+            "description": "ФИО курьера",
+            "example": "Иванов Иван Иванович"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Номер телефона",
+            "example": "71230971931"
+          },
+          "pTimeFrom": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Дата и время, с которого прибудет курьер",
+            "nullable": true,
+            "example": "2025-09-06T08:00:00Z"
+          },
+          "pTimeTo": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Дата и время, до которого прибудет курьер",
+            "nullable": true,
+            "example": "2025-09-06T11:00:00Z"
+          }
+        }
+      },
+      "CourierInfo": {
+        "type": "object",
+        "properties": {
+          "contacts": {
+            "type": "object",
+            "nullable": true,
+            "description": "Контактные данные курьера",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CourierContactsResponse"
+              }
+            ]
+          },
+          "mustBeAssigned": {
+            "type": "boolean",
+            "description": "Должен ли быть назначен курьер к текущему моменту:\n  - `false` — нет\n  - `true` — да\n\n  Если `\"mustBeAssigned\":true`, а `\"contacts\":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2)\n"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Дата и время обновления информации о курьере. <br> Если `null`, информация не обновлялась",
+            "nullable": true,
+            "example": "2025-09-06T11:33:10+03:00"
+          }
+        }
+      },
+      "api.OrdersMetaDetailsResponse": {
+        "type": "object",
+        "required": [
+          "requestId"
+        ],
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "description": "Уникальный ID запроса",
+            "example": "f1787bd2d1fdс35d6f537316514у4a05"
+          },
+          "orders": {
+            "type": "array",
+            "description": "Метаданные сборочных заданий и статусы их валидации",
+            "items": {
+              "type": "object",
+              "required": [
+                "isError"
+              ],
+              "properties": {
+                "orderId": {
+                  "type": "integer",
+                  "example": 123456,
+                  "description": "ID сборочного задания"
+                },
+                "isError": {
+                  "type": "boolean",
+                  "description": "Есть ли ошибки",
+                  "example": false
+                },
+                "errors": {
+                  "type": "array",
+                  "example": [],
+                  "description": "Информация об ошибке",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "integer",
+                        "description": "Код ошибки",
+                        "example": 404
+                      },
+                      "detail": {
+                        "type": "string",
+                        "example": "NotFound",
+                        "description": "Дополнительная информация об ошибке"
+                      }
+                    }
+                  }
+                },
+                "metaDetails": {
+                  "type": "array",
+                  "description": "Метаданные и статусы их валидации",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "example": "sgtin",
+                        "description": "Метаданные"
+                      },
+                      "value": {
+                        "type": "string",
+                        "nullable": true,
+                        "description": "Значение метаданных",
+                        "example": "123456789012345"
+                      },
+                      "decision": {
+                        "type": "string",
+                        "example": "sgtinIntroduced",
+                        "description": "Статус проверки:\n- `imei`\n  - `pending` — Маркировка на проверке\n  - `optional` — Маркировка не обязательна\n  - `filled` — Валидация пройдена\n  - `deadlineExceeded` — Валидация пройдена\n  - `imeiMaySell` — Товар допущен к продаже. Валидация пройдена\n  - `imeiSoldB2B` — Товар продан покупателю B2B, допущен к продаже повторно. Валидация пройдена\n  - `required` — Обязательная маркировка не заполнена. Валидация не пройдена\n  - `imeiInvalidFormat` — Неверный формат маркировки. Валидация не пройдена\n  - `imeiAlreadySold` — Товар с этим IMEI уже продан. Валидация не пройдена\n- `uin`\n  - `optional` — Маркировка не обязательна\n  - `filled` — Валидация пройдена\n- `sgtin`\n  - `pending` — Маркировка на проверке\n  - `optional` — Маркировка не обязательна\n  - `filled` — Валидация пройдена\n  - `deadlineExceeded` — Валидация пройдена\n  - `sgtinIntroduced` — Товар допущен к продаже. Валидация пройдена\n  - `sgtinSoldB2B` — Товар продан покупателю B2B, допущен к продаже повторно. Валидация пройдена\n  - `required` — Обязательная маркировка не заполнена. Валидация не пройдена\n  - `sgtinInvalidFormat` — Неверный формат маркировки. Валидация не пройдена\n  - `sgtinNotFound` — Маркировка не найдена в [Честном Знаке](https://chestnyznak.ru). Валидация не пройдена\n  - `sgtinEmitted` —  Маркировка эмитирована. Валидация не пройдена\n  - `sgtinApplied` — Не пройдена процедура Ввод в оборот. Валидация не пройдена\n  - `sgtinWrittenOff` — Списан. Валидация не пройдена\n  - `sgtinRetired` — Выбыл. Валидация не пройдена\n  - `sgtinWithdrawn` — Выбыл. Валидация не пройдена\n  - `sgtinDisaggregation` — Расформирован. Валидация не пройдена\n  - `sgtinDisaggregated` — Расформирован. Валидация не пройдена\n  - `sgtinAppliedNotPaid` — Не оплачен. Валидация не пройдена\n- `gtin`\n  - `optional` — Маркировка не обязательна\n  - `filled` — Валидация пройдена\n- `customsDeclaration`\n  - `optional` — Маркировка не обязательна\n  - `filled` — Валидация пройдена\n"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "api.BatchError": {
+        "properties": {
+          "detail": {
+            "type": "object",
+            "description": "Детали ошибки",
+            "example": {}
+          },
+          "origin": {
+            "type": "string",
+            "description": "ID внутреннего сервиса WB",
+            "example": "dbs-public-api"
+          },
+          "requestId": {
+            "type": "string",
+            "description": "Уникальный ID запроса",
+            "example": "f1787bd2d1fdс35d6f537316514у4a05"
+          },
+          "title": {
+            "type": "string",
+            "description": "Заголовок ошибки",
+            "example": "IncorrectRequest"
+          }
+        },
+        "type": "object"
+      },
+      "Error": {
+        "type": "object",
+        "nullable": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Код ошибки",
+            "nullable": false
+          },
+          "message": {
+            "type": "string",
+            "description": "Описание ошибки",
+            "nullable": false
+          },
+          "data": {
+            "type": "object",
+            "description": "Дополнительные данные ошибки",
+            "nullable": true
+          }
+        }
+      },
+      "OrdersRequestAPI": {
+        "properties": {
+          "orders": {
+            "description": "Список ID сборочных заданий",
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object",
+        "example": {
+          "orders": [
+            987654321,
+            123456789
+          ]
+        }
+      },
+      "DeliveryDatesRequest": {
+        "properties": {
+          "orders": {
+            "description": "Список ID сборочных заданий",
+            "items": {
+              "type": "integer",
+              "minItems": 1,
+              "maxItems": 1000
+            },
+            "type": "array"
+          }
+        },
+        "type": "object",
+        "example": {
+          "orders": [
+            1234567890
+          ]
+        }
+      },
+      "Next": {
+        "type": "integer",
+        "format": "int64",
+        "nullable": false,
+        "description": "Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных",
+        "example": 13833711
+      },
+      "OrderNewDBW": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "object",
+            "nullable": true,
+            "description": "Адрес покупателя для доставки",
+            "properties": {
+              "fullAddress": {
+                "description": "Адрес доставки",
+                "type": "string",
+                "example": "Челябинская область, г. Челябинск, 51-я улица Арабкира, д. 10А, кв. 42"
+              },
+              "longitude": {
+                "type": "number",
+                "format": "float64",
+                "nullable": false,
+                "description": "Долгота",
+                "example": 44.519068
+              },
+              "latitude": {
+                "type": "number",
+                "format": "float64",
+                "nullable": false,
+                "description": "Широта",
+                "example": 40.20192
+              }
+            }
+          },
+          "salePrice": {
+            "description": "Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях\n",
+            "type": "integer",
+            "nullable": true,
+            "example": 504658
+          },
+          "requiredMeta": {
+            "description": "Список метаданных, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/Metadannye-DBW/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put) обязательно для [предмета](./work-with-products/#tag/Kategorii-predmety-i-harakteristiki/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `\"subjectId\":515`",
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "uin"
+            ]
+          },
+          "comment": {
+            "type": "string",
+            "nullable": false,
+            "description": "Комментарий покупателя",
+            "maxLength": 300,
+            "example": "Упакуйте в пленку, пожалуйста"
+          },
+          "options": {
+            "type": "object",
+            "description": "Опции заказа",
+            "properties": {
+              "isB2b": {
+                "type": "boolean",
+                "description": "Признак B2B-продажи:\n  - `false` — не B2B-продажа\n  - `true` — B2B-продажа\n"
+              }
+            }
+          },
+          "orderUid": {
+            "type": "string",
+            "description": "ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`",
+            "example": "165918930_629fbc924b984618a44354475ca58675"
+          },
+          "groupId": {
+            "description": "ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)",
+            "type": "string",
+            "format": "UUID",
+            "example": "7a2c8810-1db2-4011-9682-5c7fa33afd83"
+          },
+          "article": {
+            "type": "string",
+            "nullable": false,
+            "description": "Артикул продавца",
+            "example": "one-ring-7548"
+          },
+          "colorCode": {
+            "description": "Код цвета (только для колеруемых товаров)",
+            "type": "string",
+            "nullable": false,
+            "example": "RAL 3017"
+          },
+          "rid": {
+            "type": "string",
+            "nullable": false,
+            "description": "Уникальный ID заказа. <br>\nПримечание: `rid` — это `srid` в ответах методов:\n  - [Заявки покупателей на возврат](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)\n  - [Заказы](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1orders/get)\n  - [Продажи](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1sales/get)\n  - [Отчет о возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)\n  - [Отчет о продажах по реализации](./financial-reports-and-accounting#tag/Finansovye-otchyoty/paths/~1api~1v5~1supplier~1reportDetailByPeriod/get)\n",
+            "example": "f884001e44e511edb8780242ac120002"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": false,
+            "description": "Дата создания сборочного задания",
+            "example": "2022-05-04T07:56:29Z"
+          },
+          "skus": {
+            "type": "array",
+            "nullable": false,
+            "description": "Массив баркодов товара",
+            "items": {
+              "type": "string",
+              "example": "6665956397512"
+            }
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": false,
+            "description": "ID сборочного задания",
+            "example": 13833711
+          },
+          "warehouseId": {
+            "type": "integer",
+            "nullable": false,
+            "description": "ID склада продавца, на который поступило сборочное задание",
+            "example": 658434
+          },
+          "nmId": {
+            "type": "integer",
+            "nullable": false,
+            "description": "Артикул WB",
+            "example": 123456789
+          },
+          "chrtId": {
+            "type": "integer",
+            "nullable": false,
+            "description": "ID размера товара в системе WB",
+            "example": 987654321
+          },
+          "price": {
+            "type": "integer",
+            "nullable": false,
+            "description": "Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях",
+            "example": 1014
+          },
+          "convertedPrice": {
+            "type": "integer",
+            "nullable": false,
+            "description": "Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях",
+            "example": 1014
+          },
+          "currencyCode": {
+            "type": "integer",
+            "nullable": false,
+            "format": "ISO 4217",
+            "description": "Код валюты продажи",
+            "example": 933
+          },
+          "convertedCurrencyCode": {
+            "type": "integer",
+            "nullable": false,
+            "format": "ISO 4217",
+            "description": "Код валюты страны продавца",
+            "example": 643
+          },
+          "cargoType": {
+            "type": "integer",
+            "nullable": false,
+            "description": "Тип товара:\n  - `1` — малогабаритный товар (МГТ)\n  - `2` — сверхгабаритный товар (СГТ)\n  - `3` — крупногабаритный товар (КГТ+)\n",
+            "enum": [
+              1,
+              2,
+              3
+            ]
+          },
+          "isZeroOrder": {
+            "type": "boolean",
+            "description": "Признак заказа товара с нулевым остатком:\n  - `false` — заказ сделан на товар с ненулевым остатком\n  - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену\n",
+            "example": false
+          }
+        }
+      },
+      "Order": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "object",
+            "nullable": true,
+            "description": "Адрес покупателя для доставки",
+            "properties": {
+              "fullAddress": {
+                "description": "Адрес доставки",
+                "type": "string",
+                "example": "Челябинская область, г. Челябинск, 51-я улица Арабкира, д. 10А, кв. 42"
+              },
+              "longitude": {
+                "type": "number",
+                "format": "float64",
+                "nullable": false,
+                "description": "Долгота",
+                "example": 44.519068
+              },
+              "latitude": {
+                "type": "number",
+                "format": "float64",
+                "nullable": false,
+                "description": "Широта",
+                "example": 40.20192
+              }
+            }
+          },
+          "options": {
+            "type": "object",
+            "description": "Опции заказа",
+            "properties": {
+              "isB2b": {
+                "type": "boolean",
+                "description": "Признак B2B-продажи:\n  - `false` — не B2B-продажа\n  - `true` — B2B-продажа\n"
+              }
+            }
+          },
+          "orderUid": {
+            "type": "string",
+            "description": "ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`",
+            "example": "165918930_629fbc924b984618a44354475ca58675"
+          },
+          "groupId": {
+            "description": "ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)",
+            "type": "string",
+            "format": "UUID",
+            "example": "7a2c8810-1db2-4011-9682-5c7fa33afd83"
+          },
+          "article": {
+            "type": "string",
+            "nullable": false,
+            "description": "Артикул продавца",
+            "example": "one-ring-7548"
+          },
+          "colorCode": {
+            "type": "string",
+            "nullable": false,
+            "description": "Код цвета (только для колеруемых товаров)",
+            "example": "RAL 3017"
+          },
+          "rid": {
+            "type": "string",
+            "nullable": false,
+            "description": "Уникальный ID заказа. <br>\nПримечание: `rid` — это `srid` в ответах методов:\n  - [Заявки покупателей на возврат](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)\n  - [Заказы](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1orders/get)\n  - [Продажи](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1sales/get)\n  - [Отчет о возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)\n  - [Отчет о продажах по реализации](./financial-reports-and-accounting#tag/Finansovye-otchyoty/paths/~1api~1v5~1supplier~1reportDetailByPeriod/get)\n",
+            "example": "f884001e44e511edb8780242ac120002"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": false,
+            "description": "Дата создания сборочного задания",
+            "example": "2022-05-04T07:56:29Z"
+          },
+          "skus": {
+            "type": "array",
+            "nullable": false,
+            "description": "Массив баркодов товара",
+            "items": {
+              "type": "string",
+              "example": "6665956397512"
+            }
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": false,
+            "description": "ID сборочного задания",
+            "example": 13833711
+          },
+          "warehouseId": {
+            "type": "integer",
+            "nullable": false,
+            "description": "ID склада продавца, на который поступило сборочное задание",
+            "example": 658434
+          },
+          "nmId": {
+            "type": "integer",
+            "nullable": false,
+            "description": "Артикул WB",
+            "example": 123456789
+          },
+          "chrtId": {
+            "type": "integer",
+            "nullable": false,
+            "description": "ID размера товара в системе WB",
+            "example": 987654321
+          },
+          "price": {
+            "type": "integer",
+            "nullable": false,
+            "description": "Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях",
+            "example": 1014
+          },
+          "convertedPrice": {
+            "type": "integer",
+            "nullable": false,
+            "description": "Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях",
+            "example": 1014
+          },
+          "currencyCode": {
+            "type": "integer",
+            "nullable": false,
+            "format": "ISO 4217",
+            "description": "Код валюты продажи",
+            "example": 933
+          },
+          "convertedCurrencyCode": {
+            "type": "integer",
+            "nullable": false,
+            "format": "ISO 4217",
+            "description": "Код валюты страны продавца",
+            "example": 643
+          },
+          "cargoType": {
+            "type": "integer",
+            "nullable": false,
+            "description": "Тип товара:\n  - `1` — малогабаритный товар (МГТ)\n  - `2` — сверхгабаритный товар (СГТ)\n  - `3` — крупногабаритный товар (КГТ+)\n",
+            "enum": [
+              1,
+              2,
+              3
+            ]
+          },
+          "comment": {
+            "type": "string",
+            "nullable": false,
+            "description": "Комментарий покупателя",
+            "maxLength": 300,
+            "example": "Упакуйте в пленку, пожалуйста"
+          },
+          "isZeroOrder": {
+            "type": "boolean",
+            "description": "Признак заказа товара с нулевым остатком:\n  - `false` — заказ сделан на товар с ненулевым остатком\n  - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену\n",
+            "example": false
+          }
+        }
+      },
+      "DeliveryDatesInfoResp": {
+        "type": "object",
+        "properties": {
+          "orders": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "dTimeFrom": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Актуальное время доставки \"с\"",
+                  "example": "11:11"
+                },
+                "dTimeTo": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Актуальное время доставки \"по\"",
+                  "example": "22:22"
+                },
+                "dTimeFromOld": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Прежнее время доставки \"с\". Доступно первые сутки после изменения",
+                  "example": "12:30"
+                },
+                "dTimeToOld": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Прежнее время доставки \"по\". Доступно первые сутки после изменения",
+                  "example": "22:30"
+                },
+                "dDateOld": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Прежняя дата доставки. Доступна первые сутки после изменения",
+                  "example": "2025-01-28"
+                },
+                "dDate": {
+                  "type": "string",
+                  "nullable": false,
+                  "description": "Актуальная дата доставки",
+                  "example": "2025-02-20"
+                },
+                "id": {
+                  "type": "integer",
+                  "description": "ID сборочного задания",
+                  "example": 1234567890
+                }
+              }
+            }
+          }
+        }
+      },
+      "Meta": {
+        "type": "object",
+        "description": "Метаданные сборочного задания",
+        "nullable": true,
+        "properties": {
+          "imei": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "nullable": true,
+                "type": "string",
+                "example": "123456789012345"
+              }
+            },
+            "description": "IMEI"
+          },
+          "uin": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "nullable": true,
+                "type": "string",
+                "example": "123456789012345"
+              }
+            },
+            "description": "УИН"
+          },
+          "gtin": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "nullable": true,
+                "type": "string",
+                "example": "123456789012345"
+              }
+            },
+            "description": "GTIN"
+          },
+          "sgtin": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": [
+                  "123456789012345"
+                ],
+                "nullable": true
+              }
+            },
+            "description": "Код маркировки Честного знака"
+          }
+        }
+      }
+    }
+  }
+}

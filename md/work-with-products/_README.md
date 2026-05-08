@@ -1,0 +1,77 @@
+# work-with-products
+
+**Работа с товарами** — версия `products`
+
+С помощью методов этого раздела вы можете:
+  - [создавать](./work-with-products#tag/Sozdanie-kartochek-tovarov) и [редактировать](./work-with-products#tag/Kartochki-tovarov) карточки товаров
+  - получать [категории, предметы, характеристики и бренды товаров](./work-with-products#tag/Kategorii-predmety-i-harakteristiki)
+  - загружать [медиафайлы](./work-with-products#tag/Mediafajly) в карточки товаров
+  - настраивать [ярлыки](./work-with-products#tag/Yarlyki) для поиска товаров
+  - устанавливать [цены и скидки](./work-with-products#tag/Ceny-i-skidki)
+  - управлять [остатками товаров](./work-with-products#tag/Ostatki-na-skladah-prodavca) и [складами](./work-with-products#tag/Sklady-prodavca), если вы работаете по модели продаж со склада продавца
+
+  <div class="description_ref">
+    Узнать, как использовать методы в бизнес-кейсах, можно в <a href="https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami">инструкции</a> по <strong>работе с товарами</strong>
+  </div>
+
+## Разделы (tags)
+- [Работа с товарами](tags/Работа с товарами.md)
+- [Категории, предметы и характеристики](tags/Категории, предметы и характеристики.md)
+- [Создание карточек товаров](tags/Создание карточек товаров.md)
+- [Карточки товаров](tags/Карточки товаров.md)
+- [Медиафайлы](tags/Медиафайлы.md)
+- [Ярлыки](tags/Ярлыки.md)
+- [Цены и скидки](tags/Цены и скидки.md)
+- [Склады продавца](tags/Склады продавца.md)
+- [Остатки на складах продавца](tags/Остатки на складах продавца.md)
+
+## Эндпоинты
+- [`GET /content/v2/object/parent/all` — Родительские категории товаров{{ /content/v2/object/parent/all }}](operations/GET content-v2-object-parent-all.md)
+- [`GET /content/v2/object/all` — Список предметов{{ /content/v2/object/all }}](operations/GET content-v2-object-all.md)
+- [`GET /content/v2/object/charcs/{subjectId}` — Характеристики предмета{{ /content/v2/object/charcs/{subjectId} }}](operations/GET content-v2-object-charcs-{subjectId}.md)
+- [`GET /content/v2/directory/colors` — Цвет{{ /content/v2/directory/colors }}](operations/GET content-v2-directory-colors.md)
+- [`GET /content/v2/directory/kinds` — Пол{{ /content/v2/directory/kinds }}](operations/GET content-v2-directory-kinds.md)
+- [`GET /content/v2/directory/countries` — Страна производства{{ /content/v2/directory/countries }}](operations/GET content-v2-directory-countries.md)
+- [`GET /content/v2/directory/seasons` — Сезон{{ /content/v2/directory/seasons }}](operations/GET content-v2-directory-seasons.md)
+- [`GET /content/v2/directory/vat` — Ставка НДС{{ /content/v2/directory/vat }}](operations/GET content-v2-directory-vat.md)
+- [`GET /content/v2/directory/tnved` — ТНВЭД-код{{ /content/v2/directory/tnved }}](operations/GET content-v2-directory-tnved.md)
+- [`GET /api/content/v1/brands` — Бренды{{ /api/content/v1/brands }}](operations/GET api-content-v1-brands.md)
+- [`GET /content/v2/tags` — Список ярлыков{{ /content/v2/tags }}](operations/GET content-v2-tags.md)
+- [`POST /content/v2/tag` — Создание ярлыка{{ /content/v2/tag }}](operations/POST content-v2-tag.md)
+- [`PATCH /content/v2/tag/{id}` — Изменение ярлыка{{ /content/v2/tag/{id} }}](operations/PATCH content-v2-tag-{id}.md)
+- [`DELETE /content/v2/tag/{id}` — Удаление ярлыка{{ /content/v2/tag/{id} }}](operations/DELETE content-v2-tag-{id}.md)
+- [`POST /content/v2/tag/nomenclature/link` — Управление ярлыками в карточке товара{{ /content/v2/tag/nomenclature/link }}](operations/POST content-v2-tag-nomenclature-link.md)
+- [`POST /content/v2/get/cards/list` — Список карточек товаров{{ /content/v2/get/cards/list }}](operations/POST content-v2-get-cards-list.md)
+- [`POST /content/v2/cards/error/list` — Список несозданных карточек товаров с ошибками{{ /content/v2/cards/error/list }}](operations/POST content-v2-cards-error-list.md)
+- [`POST /content/v2/cards/update` — Редактирование карточек товаров{{ /content/v2/cards/update }}](operations/POST content-v2-cards-update.md)
+- [`POST /content/v2/cards/moveNm` — Объединение и разъединение карточек товаров{{ /content/v2/cards/moveNm }}](operations/POST content-v2-cards-moveNm.md)
+- [`POST /content/v2/cards/delete/trash` — Перенос карточек товаров в корзину{{ /content/v2/cards/delete/trash }}](operations/POST content-v2-cards-delete-trash.md)
+- [`POST /content/v2/cards/recover` — Восстановление карточек товаров из корзины{{ /content/v2/cards/recover }}](operations/POST content-v2-cards-recover.md)
+- [`POST /content/v2/get/cards/trash` — Список карточек товаров в корзине{{ /content/v2/get/cards/trash }}](operations/POST content-v2-get-cards-trash.md)
+- [`GET /content/v2/cards/limits` — Лимиты карточек товаров{{ /content/v2/cards/limits }}](operations/GET content-v2-cards-limits.md)
+- [`POST /content/v2/barcodes` — Генерация баркодов{{ /content/v2/barcodes }}](operations/POST content-v2-barcodes.md)
+- [`POST /content/v2/cards/upload` — Создание карточек товаров{{ /content/v2/cards/upload }}](operations/POST content-v2-cards-upload.md)
+- [`POST /content/v2/cards/upload/add` — Создание карточек товаров с присоединением{{ /content/v2/cards/upload/add }}](operations/POST content-v2-cards-upload-add.md)
+- [`POST /content/v3/media/file` — Загрузить медиафайл{{ /content/v3/media/file }}](operations/POST content-v3-media-file.md)
+- [`POST /content/v3/media/save` — Загрузить медиафайлы по ссылкам{{ /content/v3/media/save }}](operations/POST content-v3-media-save.md)
+- [`POST /api/v2/upload/task` — Установить цены и скидки{{ /api/v2/upload/task }}](operations/POST api-v2-upload-task.md)
+- [`POST /api/v2/upload/task/size` — Установить цены для размеров{{ /api/v2/upload/task/size }}](operations/POST api-v2-upload-task-size.md)
+- [`POST /api/v2/upload/task/club-discount` — Установить скидки WB Клуба{{ /api/v2/upload/task/club-discount }}](operations/POST api-v2-upload-task-club-discount.md)
+- [`GET /api/v2/history/tasks` — Состояние обработанной загрузки{{ /api/v2/history/tasks }}](operations/GET api-v2-history-tasks.md)
+- [`GET /api/v2/history/goods/task` — Детализация обработанной загрузки{{ /api/v2/history/goods/task }}](operations/GET api-v2-history-goods-task.md)
+- [`GET /api/v2/buffer/tasks` — Состояние необработанной загрузки{{ /api/v2/buffer/tasks }}](operations/GET api-v2-buffer-tasks.md)
+- [`GET /api/v2/buffer/goods/task` — Детализация необработанной загрузки{{ /api/v2/buffer/goods/task }}](operations/GET api-v2-buffer-goods-task.md)
+- [`GET /api/v2/list/goods/filter` — Получить товары с ценами{{ /api/v2/list/goods/filter }}](operations/GET api-v2-list-goods-filter.md)
+- [`POST /api/v2/list/goods/filter` — Получить товары с ценами по артикулам{{ /api/v2/list/goods/filter }}](operations/POST api-v2-list-goods-filter.md)
+- [`GET /api/v2/list/goods/size/nm` — Получить размеры товара с ценами{{ /api/v2/list/goods/size/nm }}](operations/GET api-v2-list-goods-size-nm.md)
+- [`GET /api/v2/quarantine/goods` — Получить товары в карантине{{ /api/v2/quarantine/goods }}](operations/GET api-v2-quarantine-goods.md)
+- [`PUT /api/v3/stocks/{warehouseId}` — Обновить остатки товаров{{ /api/v3/stocks/{warehouseId} }}](operations/PUT api-v3-stocks-{warehouseId}.md)
+- [`DELETE /api/v3/stocks/{warehouseId}` — Удалить остатки товаров{{ /api/v3/stocks/{warehouseId} }}](operations/DELETE api-v3-stocks-{warehouseId}.md)
+- [`POST /api/v3/stocks/{warehouseId}` — Получить остатки товаров{{ /api/v3/stocks/{warehouseId} }}](operations/POST api-v3-stocks-{warehouseId}.md)
+- [`GET /api/v3/offices` — Получить список складов WB{{ /api/v3/offices }}](operations/GET api-v3-offices.md)
+- [`GET /api/v3/warehouses` — Получить список складов продавца{{ /api/v3/warehouses }}](operations/GET api-v3-warehouses.md)
+- [`POST /api/v3/warehouses` — Создать склад продавца{{ /api/v3/warehouses }}](operations/POST api-v3-warehouses.md)
+- [`PUT /api/v3/warehouses/{warehouseId}` — Обновить склад продавца{{ /api/v3/warehouses/{warehouseId} }}](operations/PUT api-v3-warehouses-{warehouseId}.md)
+- [`DELETE /api/v3/warehouses/{warehouseId}` — Удалить склад продавца{{ /api/v3/warehouses/{warehouseId} }}](operations/DELETE api-v3-warehouses-{warehouseId}.md)
+- [`GET /api/v3/dbw/warehouses/{warehouseId}/contacts` — Список контактов{{ /api/v3/dbw/warehouses/{warehouseId}/contacts }}](operations/GET api-v3-dbw-warehouses-{warehouseId}-contacts.md)
+- [`PUT /api/v3/dbw/warehouses/{warehouseId}/contacts` — Обновить список контактов{{ /api/v3/dbw/warehouses/{warehouseId}/contacts }}](operations/PUT api-v3-dbw-warehouses-{warehouseId}-contacts.md)
