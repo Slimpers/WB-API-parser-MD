@@ -19,6 +19,7 @@ responses и tags. Этих файлов достаточно, чтобы в б�
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -32,23 +33,24 @@ from playwright_stealth import Stealth
 
 BASE = "https://dev.wildberries.ru/docs/openapi/"
 HERE = Path(__file__).parent
-OUT_ROOT = HERE / "md"
+# OUT_ROOT можно переопределить через env DOCS_OUT_ROOT (для общей базы на QNAP).
+OUT_ROOT = Path(os.environ["DOCS_OUT_ROOT"]) if os.environ.get("DOCS_OUT_ROOT") else HERE / "md"
 
 # Известные страницы WB OpenAPI (берем все, что захардкодим — если страница
 # отсутствует, скрипт спокойно её пропустит). Можно переопределить аргументами.
 DEFAULT_SLUGS = [
-    "api-information",
     "analytics",
-    "financial-reports-and-accounting",
+    "api-information",
+    "customer-communication",
+    "dbs",
+    "documents-and-accounting",
     "in-store-pickup",
-    "orders-dbs",
+    "item-management",
     "orders-dbw",
     "orders-fbs",
     "orders-fbw",
     "promotion",
     "reports",
-    "user-communication",
-    "work-with-products",
 ]
 
 
@@ -569,7 +571,26 @@ def render_index_md(slug: str, info: dict, servers: list[dict],
 
 # ───────────────────── основная сборка одного API ──────────────────────
 
-def fetch_state(page, slug: str) -> dict[str, Any] | None:
+def fetch_state(page, slug: str, attempts: int = 3) -> dict[str, Any] | None:
+    """Страница WB иногда отдаёт HTML до гидрации или ещё навигируется — пробуем несколько раз."""
+    for i in range(1, attempts + 1):
+        state = _fetch_state_once(page, slug)
+        if state is not None:
+            return state
+        if _REDIRECTED:
+            return None
+        if i < attempts:
+            print(f"[wb] повтор {i + 1}/{attempts} для {slug}")
+            page.wait_for_timeout(3000)
+    return None
+
+
+_REDIRECTED = False
+
+
+def _fetch_state_once(page, slug: str) -> dict[str, Any] | None:
+    global _REDIRECTED
+    _REDIRECTED = False
     url = BASE + slug
     print(f"[wb] -> {url}")
     try:
@@ -583,6 +604,7 @@ def fetch_state(page, slug: str) -> dict[str, Any] | None:
         cur = page.url
         if not cur.rstrip("/").endswith(slug):
             print(f"[wb] redirected to {cur}, skip")
+            _REDIRECTED = True
             return None
         html = page.content()
         return extract_redoc_state(html)
